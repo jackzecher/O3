@@ -737,7 +737,7 @@ class O3Window(QMainWindow):
         m=QMenu(self);row=self.mail_workspace.rows.get(d['id'])
         if row and row.get('state')=='candidate' and self.mail_workspace.task!='all':
             action=m.addAction('Stop waiting' if self.mail_workspace.task=='waiting' else 'No reply needed',lambda:self.mail_workspace.dismiss(row));action.setEnabled(row.get('action_supported',True));action.setToolTip(row.get('action_unavailable_reason') or '')
-            m.addAction('Why is this here?',lambda:self.mail_workspace.explain(row))
+        if row:m.addAction('Why is this here?',lambda:self.mail_workspace.explain(row))
         if self.mail_workspace.undo_token:m.addAction('Undo last mail choice',self.mail_workspace.undo)
         m.addAction('Draft a reply…',self.draft_reply);m.addAction('Your email addresses…',self.setup_review)
         m.exec(self.followup.mapToGlobal(self.followup.rect().topLeft()))

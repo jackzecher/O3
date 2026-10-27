@@ -187,6 +187,9 @@ class AppearanceEditor(QWidget):
         field(layout,'density','Space between items',[('compact','Compact'),('balanced','Balanced'),('comfortable','Roomy')], 'Changes list rows, tables, and navigation spacing.')
         field(layout,'navigation','Navigation',[('automatic','Sidebar when there is room'),('focus','Quiet layout · use the Menu button')], 'The Menu button always keeps every destination within reach.')
         field(layout,'reading_width','Reading width',[('narrow','Narrow · shorter lines'),('comfortable','Comfortable'),('wide','Fill available space')], 'Keeps long messages comfortable to read on a wide window.')
+        self.show_explanations=QCheckBox('Always show why mail is listed');self.show_explanations.setAccessibleName(self.show_explanations.text())
+        self.show_explanations.toggled.connect(self.emit_change);layout.addWidget(self.show_explanations)
+        layout.addWidget(text('Usually, only important notices appear under mail. Use “Why is this here?” whenever you want the full explanation.','small',True))
         self.show_splash = QCheckBox('Welcome screen on startup'); self.show_splash.setAccessibleName(self.show_splash.text())
         self.show_splash.toggled.connect(self.emit_change); layout.addWidget(self.show_splash)
         layout.addWidget(text('Closes as soon as the workspace is ready.','small',True)); layout.addStretch()
@@ -207,12 +210,14 @@ class AppearanceEditor(QWidget):
 
     def get_value(self):
         return normalize_appearance({**{key: control.currentData() for key,control in self.controls.items()},
-            'accent':self.accent,'contrast':self.contrast.isChecked(),'show_splash':self.show_splash.isChecked()})
+            'accent':self.accent,'contrast':self.contrast.isChecked(),'show_splash':self.show_splash.isChecked(),
+            'show_mail_explanations':self.show_explanations.isChecked()})
 
     def set_value(self, value, emit=True):
         prior = self.updating; self.updating = True; value = normalize_appearance(value)
         for key,control in self.controls.items(): control.setCurrentIndex(control.findData(value[key]))
         self.accent = value['accent']; self.contrast.setChecked(value['contrast']); self.show_splash.setChecked(value['show_splash'])
+        self.show_explanations.setChecked(value['show_mail_explanations'])
         self.updating = prior; self.refresh_preview()
         if emit and not self.updating: self.changed.emit(self.get_value())
 

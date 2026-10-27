@@ -131,6 +131,60 @@ class MailIntegrationTest(unittest.TestCase):
         self.assertEqual(len(set(references)),3)
         self.assertEqual({r['properties']['message_id'] for group in self.window.collection_data['structured']['rows'] for r in group['messages']}, {'branch-a','branch-b','branch-c'})
 
+    def test_routine_explanations_are_on_demand_and_optional_inline(self):
+        from o3_gui.appearance import appearance_from_config
+        from PySide6.QtWidgets import QStyleOptionViewItem
+        w=self.window;mail=w.mail_workspace;w.open_mail('unanswered')
+        self.wait_for(lambda:mail.ready and mail.task=='unanswered','unanswered explanations')
+        item=next(mail.listing.item(i) for i in range(mail.listing.count())
+                  if (mail.listing.item(i).data(Qt.UserRole+1) or {}).get('state')=='candidate'
+                  and not (mail.listing.item(i).data(Qt.UserRole+1) or {}).get('inline_notice'))
+        mail.listing.setCurrentItem(item);record=item.data(Qt.UserRole+1);row=mail.rows[item.data(Qt.UserRole)]
+        saved=appearance_from_config(w.config);before=copy.deepcopy(w.config.get('alpha3',{}));delegate=mail.listing.itemDelegate()
+        option=QStyleOptionViewItem();option.font=mail.listing.font()
+        try:
+            w.apply_appearance({**saved,'show_mail_explanations':False},preview=True)
+            quiet=delegate.layout_for(option,record);self.assertEqual(quiet['reason'],'');self.assertEqual(quiet['reason_lines'],0)
+            self.assertNotIn(row['reason'],item.text());self.assertIn(row['reason'],item.toolTip())
+            self.assertIn(row['reason'],item.data(Qt.AccessibleDescriptionRole))
+            with patch.object(w,'show_information') as information:
+                mail.why_button.click();self.assertIn(row['reason'],information.call_args.args[1])
+            w.apply_appearance({**saved,'show_mail_explanations':True},preview=True)
+            detailed=delegate.layout_for(option,record);self.assertIn(row['reason'],detailed['reason'])
+            self.assertGreater(detailed['height'],quiet['height']);self.assertEqual(w.config.get('alpha3',{}),before)
+        finally:w.apply_appearance(saved)
+
+    def test_important_mail_qualifiers_remain_visible_in_quiet_rows(self):
+        from o3_gui.appearance import appearance_from_config
+        mail=self.window.mail_workspace;response=self.backend_query(task='unanswered',page_size=1)['result']
+        route=copy.deepcopy(self.window.navigation.current);saved=appearance_from_config(self.window.config)
+        self.window.apply_appearance({**saved,'show_mail_explanations':False},preview=True)
+        qualifiers=[({'state':'uncertain'},"Couldn't check"),
+            ({'uncertain_anchor_record_ids':['unknown-message']},"Some messages couldn't be checked"),
+            ({'time_warning':'source_time_unknown'},'Message date unavailable'),
+            ({'additional_anchor_count':2},'3 messages to consider'),
+            ({'action_unavailable_reason':'The conversation exceeds the action limit.'},'Follow-up choice unavailable')]
+        try:
+            for changes,expected in qualifiers:
+                data=copy.deepcopy(response);data['rows'][0].update(changes);mail.paint(data,route)
+                item=next(mail.listing.item(i) for i in range(mail.listing.count()) if mail.listing.item(i).data(Qt.UserRole))
+                caption=mail.listing.itemDelegate().reason(item.data(Qt.UserRole+1))
+                self.assertIn(expected,caption);self.assertIn(expected,item.text())
+                self.assertIn(data['rows'][0]['reason'],item.data(Qt.AccessibleDescriptionRole))
+        finally:self.window.apply_appearance(saved)
+
+    def test_reader_explanation_is_available_for_all_and_uncertain_mail(self):
+        w=self.window;mail=w.mail_workspace;row=next(iter(mail.rows.values()));prior=w.current_detail
+        try:
+            for state in ('all','uncertain'):
+                row['state']=state;w.current_detail={'id':row['display_record_id']}
+                with patch('o3_gui.app.QMenu') as menu,patch.object(w,'show_information') as information:
+                    w.followup_menu()
+                    actions=menu.return_value.addAction.call_args_list
+                    explanation=next(call for call in actions if call.args[0]=='Why is this here?')
+                    explanation.args[1]();self.assertIn(row['reason'],information.call_args.args[1])
+        finally:w.current_detail=prior
+
     def test_cc_only_dismiss_and_undo_through_widget(self):
         self.window.open_mail('unanswered',{'include_cc':True})
         self.wait_for(lambda:self.window.mail_workspace.ready and self.window.mail_workspace.task=='unanswered','copied-message view')

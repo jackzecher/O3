@@ -102,6 +102,10 @@ class RecordDelegate(QStyledItemDelegate):
 
     @staticmethod
     def reason(record):
+        if record.get('explanation_on_demand'):
+            from .presentation import current_appearance
+            if not current_appearance()['show_mail_explanations']:
+                return str(record.get('inline_notice') or '')
         value = str(record.get('reason') or '')
         if record.get('state') in {'unknown', 'uncertain', 'unresolved', 'couldnt_check', 'could_not_check'}:
             return "Couldn't check" + (' · ' + value if value else '')

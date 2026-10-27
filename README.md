@@ -1,14 +1,14 @@
-# O3 — Alpha 3 upgrade review 2
+# O3 — Alpha 3 upgrade review 3
 
 O3 should make everyday work understandable immediately. This Candidate 6 upgrade puts **Unanswered**, **Waiting for replies**, and **All mail** directly in Mail; adds clear customization with previews and Undo; and improves navigation, accessibility, and the Connections map while retaining O3's visual direction.
 
-![Appearance with twelve dark palettes](review/appearance-review/images/appearance-dark.png)
+![Quieter mail with explanations on demand](review/quiet-mail-review/images/quiet-mail.png)
 
-This is application development build **3.0.0-alpha3.upgrade2-dev**, ready for review with fictional sample information. It adds a complete Appearance editor and a working welcome screen in the review launcher. Native launcher integration and the approved runtime/runner are still pending. It is not a replacement installer.
+This is application development build **3.0.0-alpha3.upgrade3-dev**, ready for review with fictional sample information. Routine mail explanations are now on demand; important notices remain visible. The complete Appearance editor and working review welcome screen remain included. Native launcher integration and the approved runtime/runner are still pending. It is not a replacement installer.
 
 ## Try the review
 
-Download the [latest review ZIP](review/appearance-review/O3_Alpha_3_Upgrade_Review_2.zip) and extract it, or use this checkout. [READ_ME_FIRST.txt](READ_ME_FIRST.txt) explains the available journeys and limitations. The sample workspace is created inside the review directory; the installed O3 workspace is not selected automatically.
+Download the [latest review ZIP](review/quiet-mail-review/O3_Alpha_3_Upgrade_Review_3.zip) and extract it, or use this checkout. [READ_ME_FIRST.txt](READ_ME_FIRST.txt) explains the available journeys and limitations. The sample workspace is created inside the review directory; the installed O3 workspace is not selected automatically.
 
 The verified environment was Windows, Python 3.12.10, PySide6/Qt 6.9.2, RDFLib 7.6.0, and pyparsing 3.3.3. With Python 3.12 installed, run these commands in PowerShell from this checkout:
 
@@ -23,6 +23,7 @@ py -3.12 -m venv .venv
 ## What changed
 
 - Mail opens with useful task views. Results explain when saved mail is incomplete; explicit email identity, reply ancestry, and mailbox boundaries determine the result. “No reply needed” and “Stop waiting” are reversible local choices.
+- Routine explanations no longer repeat below every mail item. “Why is this here?”, tooltips, and accessible descriptions retain the full reason; incomplete checks, missing dates, multiple relevant messages, and unavailable actions keep a short visible notice. Appearance → Layout can restore all inline explanations. The reader's Follow-up menu also offers the explanation for uncertain and All mail items.
 - Personalize previews results before saving. Saved views support reopening, renaming, removal, and understandable choices without exposing internal rules by default.
 - People, Documents, Calendar, and Projects remain ready to use. Project changes refresh related information already saved in O3, with a visible Retry action if that work fails.
 - Connections keeps the starting item and its neighbors visible and provides map/list navigation, keyboard controls, and Center.
@@ -34,6 +35,8 @@ py -3.12 -m venv .venv
 - The seven recorded QC defects were addressed: persistent failure notices, toolbar crowding, compact activation, project refresh, first-use clutter, full titles, and date clipping.
 
 ## Verification
+
+The [quieter-mail record](review/quiet-mail-review/VERIFICATION.json) records 17 targeted mail/appearance tests, 7 visual tests, 10 native checks, and a successful unpacked Review 3 startup. It verifies on-demand explanations, retained qualifiers, accessible descriptions, the optional detailed setting, Save/Cancel, and all 81 payload hashes. The [illustrated change](review/quiet-mail-review/QUIET_MAIL_REVIEW.html) includes the new list and setting.
 
 The [appearance verification record](review/appearance-review/VERIFICATION.json) records the final application and visual suites, 181 native appearance checks, and 51 rerun native regression checks. Those include 24-palette contrast coverage, extreme accent choices, large text, narrow Settings, keyboard selection, failed-save retry, saved looks, reader selection preservation, reopening, and the welcome-screen handoff.
 
@@ -48,7 +51,7 @@ From the checkout root, use the same configured Python interpreter to run the ap
 
 The immutable Candidate 6 package integrity test skips when that original local evidence package is absent. It passed in the original verification environment. Other tests use isolated synthetic state. Native QC scripts in `verification/` require a fresh output directory; passing `--platform windows` to `qc_upgrade.py` opens application windows for visual checks.
 
-The latest ZIP's SHA-256 and payload count are in the [verification record](review/appearance-review/VERIFICATION.json). `BUILD_REVIEW_MANIFEST.json` records every payload file and hash.
+The latest ZIP's SHA-256 and payload count are in the [verification record](review/quiet-mail-review/VERIFICATION.json). `BUILD_REVIEW_MANIFEST.json` records every payload file and hash.
 
 `build_review.py` rebuilds the review ZIP and manifest. Its timestamp changes on rebuilding; the checked-in ZIP and manifest preserve the reviewed artifact.
 

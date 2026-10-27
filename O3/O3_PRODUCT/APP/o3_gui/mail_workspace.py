@@ -13,6 +13,17 @@ SUBTITLES = {'unanswered': 'Mail to you with no reply from you found.',
              'all': 'Your saved conversations, together in one place.'}
 
 
+def mail_row_notice(row):
+    """Only decision-relevant qualifiers stay inline; the full reason is on demand."""
+    notices=[]
+    if row.get('state')=='uncertain':notices.append("Couldn't check for replies")
+    elif row.get('uncertain_anchor_record_ids'):notices.append("Some messages couldn't be checked")
+    if row.get('additional_anchor_count'):notices.append(str(row['additional_anchor_count']+1)+' messages to consider')
+    if row.get('time_warning'):notices.append('Message date unavailable')
+    if row.get('action_unavailable_reason'):notices.append('Follow-up choice unavailable')
+    return ' · '.join(notices)
+
+
 class MailWorkspace(QWidget):
     def __init__(self, host):
         super().__init__(host)
@@ -183,11 +194,16 @@ class MailWorkspace(QWidget):
             reason = row.get('reason') or ''
             if row.get('additional_anchor_count'):reason+=' · '+str(row['additional_anchor_count']+1)+' messages to consider'
             if row.get('time_warning'):reason+=' · Message date unavailable'
-            item = QListWidgetItem(title + '. ' + sender + '. ' + reason)
+            if row.get('uncertain_anchor_record_ids') and row.get('state')!='uncertain':reason+=" · Some messages couldn't be checked"
+            if row.get('action_unavailable_reason'):reason+=' · Follow-up choice unavailable'
+            notice=mail_row_notice(row)
+            item = QListWidgetItem('. '.join(part for part in (title,sender,self.host.local_stamp(stamp,True),notice) if part))
+            item.setData(Qt.AccessibleDescriptionRole,reason)
             item.setData(Qt.UserRole, rid)
             item.setData(Qt.UserRole + 1, {'title': title, 'kind': 'Mail', 'person': sender,
                                          'capture_label': self.host.local_stamp(stamp, True),
-                                         'reason': reason, 'state': row.get('state')})
+                                         'reason': reason, 'state': row.get('state'),
+                                         'explanation_on_demand': True, 'inline_notice': notice})
             item.setToolTip(title + '\n' + sender + '\n' + self.host.local_stamp(stamp) + '\n' + reason)
             self.listing.addItem(item)
         identity = data.get('identity') or {}
@@ -239,7 +255,7 @@ class MailWorkspace(QWidget):
         message = row.get('reason', '') + '\n\n'
         if row.get('action_unavailable_reason'):message+=row['action_unavailable_reason']+'\n\n'
         message += 'This check uses the saved mail in O3. It does not establish that anyone is obliged to reply, or that your live mailbox has no newer messages.'
-        if row.get('additional_anchor_count'):message+='This conversation has '+str(row['additional_anchor_count']+1)+' messages to consider. No reply needed or Stop waiting applies to all of those messages.\n\n'
+        if row.get('additional_anchor_count'):message+='\n\nThis conversation has '+str(row['additional_anchor_count']+1)+' messages to consider. No reply needed or Stop waiting applies to all of those messages.\n\n'
         message += '\n\n' + str(row.get('message_count', 1)) + ' saved messages in this conversation.'
         if row.get('uncertain_anchor_record_ids'):message += '\nSome other messages in this conversation could not be checked. This choice only applies to the messages whose reply status could be checked.'
         self.host.show_information('Why is this here?', message)

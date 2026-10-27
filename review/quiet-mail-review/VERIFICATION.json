@@ -1,0 +1,81 @@
+{
+  "build": "3.0.0-alpha3.upgrade3-dev",
+  "date": "2026-10-27",
+  "base_commit": "fad69d9a24d0ace3326095e906cc329378a9ca8b",
+  "targeted_application_tests": {
+    "passed": 17,
+    "failed": 0,
+    "seconds": 19.727
+  },
+  "visual_tests": {
+    "passed": 7,
+    "failed": 0,
+    "seconds": 8.31
+  },
+  "native": {
+    "checks": [
+      {
+        "name": "Ordinary rows have no repeated explanatory line",
+        "pass": true
+      },
+      {
+        "name": "Selected mail keeps the explanation action available",
+        "pass": true
+      },
+      {
+        "name": "Explanation opens with the full reason",
+        "pass": true
+      },
+      {
+        "name": "Full explanation remains available to assistive technology",
+        "pass": true
+      },
+      {
+        "name": "Explanation setting fits at 150% text in compact Settings",
+        "pass": true
+      },
+      {
+        "name": "Compact Settings keeps Save accessible",
+        "pass": true
+      },
+      {
+        "name": "Opting in shows the full inline reason",
+        "pass": true
+      },
+      {
+        "name": "Cancel restores quiet rows",
+        "pass": true
+      },
+      {
+        "name": "Saving remembers the detailed preference",
+        "pass": true
+      },
+      {
+        "name": "Reopening Settings restores the saved choice",
+        "pass": true
+      }
+    ],
+    "errors": [],
+    "platform": "windows"
+  },
+  "packaged_smoke": {
+    "build": "3.0.0-alpha3.upgrade3-dev",
+    "payload_hashes": 81,
+    "title": "O3 \u00b7 Upgrade review",
+    "window_icon": true,
+    "application_icon": true,
+    "splash_count": 1,
+    "handoff_succeeded": true,
+    "splash_closed": true,
+    "mail_rows": 12,
+    "windows_app_id": "O3.UpgradeReview",
+    "pass": true,
+    "theme_choices": 24
+  },
+  "archive": {
+    "file": "O3_Alpha_3_Upgrade_Review_3.zip",
+    "sha256": "e718be530e303f0b278155d07ceceab3b0c208955cf61f39a9517635433fdbd7",
+    "payload_files": 81
+  },
+  "scope": "Presentation-only mail change. Earlier broad verification remains recorded with Review 2. Native installer/runtime integration remains pending."
+}

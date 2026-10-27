@@ -37,7 +37,7 @@ DEFAULTS = {
     'theme': 'harbor', 'text_scale': 1.0, 'accent': None, 'font': 'default',
     'reader_font': 'match', 'reader_scale': 1.0, 'line_spacing': 1.45,
     'density': 'balanced', 'navigation': 'automatic', 'reading_width': 'wide',
-    'contrast': False, 'show_splash': True,
+    'contrast': False, 'show_splash': True, 'show_mail_explanations': False,
 }
 
 
@@ -58,7 +58,7 @@ def normalize_appearance(raw=None):
     color = raw.get('accent')
     if isinstance(color, str) and re.fullmatch(r'#[0-9a-fA-F]{6}', color):
         result['accent'] = color.lower()
-    for key in ('contrast', 'show_splash'):
+    for key in ('contrast', 'show_splash', 'show_mail_explanations'):
         if type(raw.get(key)) is bool:
             result[key] = raw[key]
     return result

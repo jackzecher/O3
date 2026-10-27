@@ -1,4 +1,4 @@
-O3 — Upgrade Review 2 · Appearance
+O3 — Upgrade Review 3 · Quieter mail
 
 Open "Open O3 Review.cmd" to explore the upgrade with fictional sample information.
 The sample is kept beside this review in review-workspace. Your installed O3 workspace
@@ -8,6 +8,12 @@ Start with Mail:
   Unanswered — mail addressed to you with no reply from you found in the saved mail.
   Waiting for replies — mail you sent with no later reply found.
   All mail — all saved conversations, including ones O3 could not fully check.
+
+Mail rows now keep routine explanations out of the way. Important notices about
+incomplete checks, missing dates, or multiple messages remain visible. Select a row
+and choose "Why is this here?", hover over it, or open Follow-up in the reader for the
+full explanation. To show every explanation again, use Settings → Appearance → Layout
+and turn on "Always show why mail is listed".
 
 Open a message to read it. Related information offers the other messages in its
 conversation and its connections. No reply needed and Stop waiting are local choices;
