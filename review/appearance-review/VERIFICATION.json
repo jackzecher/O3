@@ -1,0 +1,36 @@
+{
+  "build": "3.0.0-alpha3.upgrade2-dev",
+  "date": "2026-10-27",
+  "baseline": "Alpha 3 Candidate 6; review 1 preserved",
+  "application_tests": {
+    "passed": 77,
+    "failed": 0,
+    "seconds": 40.975
+  },
+  "visual_tests": {
+    "passed": 7,
+    "failed": 0
+  },
+  "native_checks": {
+    "appearance": 181,
+    "regression_main": 30,
+    "regression_edges": 21,
+    "packaged_smoke": "PASS"
+  },
+  "native_total": 232,
+  "palettes": {
+    "light": 12,
+    "dark": 12
+  },
+  "archive": {
+    "file": "O3_Alpha_3_Upgrade_Review_2.zip",
+    "sha256": "e55bb5ec6af2ecfc05cd13cc59a259df537da1cfd02ed489ab07faafb5984479",
+    "payload_files": 81
+  },
+  "scope": "Isolated synthetic Windows application and unpacked review launcher. This is not managed O3.exe or approved-runtime qualification.",
+  "pending": [
+    "Authoritative native launcher source for executable icon and sole managed splash integration",
+    "Actual approved runtime/runner",
+    "Full assistive-technology and production-data qualification"
+  ]
+}

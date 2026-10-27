@@ -88,7 +88,7 @@ class VisualUpgradeTests(unittest.TestCase):
         changed = theme_tokens(); changed['body'] = 'bad'
         self.assertNotEqual(theme_tokens()['body'], 'bad')
         self.assertTrue(stylesheet_for())
-        self.assertEqual(len(THEME_CHOICES), 5)
+        self.assertEqual(len(THEME_CHOICES), 24)
 
     def test_full_date_measurement_and_reason_reflow(self):
         rows = QListWidget(); rows.resize(700, 600)

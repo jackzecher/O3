@@ -36,5 +36,10 @@ When the supported launcher source/build is supplied:
    display scale, text scaling, cold/warm start, missing input/runtime,
    unavailable workspace, interrupted initialization, and multi-monitor DPI.
 
-The SVG/PNG startup composition is a design reference only. It is not a second
-launcher, a runtime, a successful startup test, or proof of native integration.
+The SVG/PNG composition remains a native design reference, not proof of native
+integration. The explicit review_app.py entry point has no O3.exe owner. It now
+uses one native Qt welcome screen with live accessible labels and this design,
+and hands off on the real workspace-ready/failure signal without a minimum dwell.
+That screen is confined to the review entry point; the managed bootstrap and
+o3_gui.__main__ do not start it. Its appearance and enable/disable preference are
+local to the review workspace. It does not replace the required native work.

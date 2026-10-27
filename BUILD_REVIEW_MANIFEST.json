@@ -1,8 +1,8 @@
 {
-  "build": "3.0.0-alpha3.upgrade1-dev",
+  "build": "3.0.0-alpha3.upgrade2-dev",
   "baseline": "3.0.0-alpha3.candidate6",
   "baseline_source": "026a43087fdbe63c835a94bfb40efb5d867c962f",
-  "created_at_utc": "2026-10-27T04:55:49.660087+00:00",
+  "created_at_utc": "2026-10-27T11:38:25.241296+00:00",
   "scope": "Application development review. Native launcher and approved runtime/runner qualification pending.",
   "files": [
     {
@@ -82,7 +82,7 @@
     },
     {
       "path": "O3/O3_PRODUCT/APP/o3_gui/__init__.py",
-      "sha256": "0f99d82c66a55f65e8d649b22a4ce29aadd3c5484136452386380ea3ff359705",
+      "sha256": "b0021af262905ea21c321e3512082090fb55f08074a04cfc9f88e15bb6f6a031",
       "bytes": 105
     },
     {
@@ -92,8 +92,18 @@
     },
     {
       "path": "O3/O3_PRODUCT/APP/o3_gui/app.py",
-      "sha256": "faf68f751a9bed146809df58ef53cc403394ae6d113b86b3343486137b325715",
-      "bytes": 89897
+      "sha256": "aefce673f6eb2114655cc4ec17c1802b6dcd6f33f859d307b1ff0ff2e7c7b687",
+      "bytes": 92308
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/appearance.py",
+      "sha256": "3f67dc1c218eec217e86884f85dd2ce2e8eaafeb0f9e52f3dcc67b41346a14ea",
+      "bytes": 7179
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/appearance_editor.py",
+      "sha256": "3dfdaba4e08765bc80eee23f748ec9e183a1ee573bfbd60e373372f4729087da",
+      "bytes": 18487
     },
     {
       "path": "O3/O3_PRODUCT/APP/o3_gui/assets/check-dark.svg",
@@ -117,8 +127,8 @@
     },
     {
       "path": "O3/O3_PRODUCT/APP/o3_gui/assets/NATIVE_STARTUP_CONTRACT.txt",
-      "sha256": "b2034d58dc6ade365655ab54336ba762471cc04fd076b2fa0c2d7884d80fd705",
-      "bytes": 2595
+      "sha256": "981a53f0608e3871b7c89cb4e7c6ab84e565b15c38455800695f74ef5c61d814",
+      "bytes": 2992
     },
     {
       "path": "O3/O3_PRODUCT/APP/o3_gui/assets/o3-128.png",
@@ -257,13 +267,13 @@
     },
     {
       "path": "O3/O3_PRODUCT/APP/o3_gui/panels.py",
-      "sha256": "21a220d0a726e71a840b4f25a5f30498ced32834cc7d249bc76b635c580216ad",
-      "bytes": 20193
+      "sha256": "b6eb84c138e2e63a06e7c3880810633e8b31c005d07054fca643dbe897265d2d",
+      "bytes": 20256
     },
     {
       "path": "O3/O3_PRODUCT/APP/o3_gui/presentation.py",
-      "sha256": "8b00299cbdffd4d308c7c7cfe74ceaf42f20a290a2aaf7614753020f7313603c",
-      "bytes": 9292
+      "sha256": "4b4048dadc386fc8a20741888b5024bec4c8abbbe703e689e3ef26acf1198240",
+      "bytes": 11567
     },
     {
       "path": "O3/O3_PRODUCT/APP/o3_gui/record_actions.py",
@@ -296,9 +306,14 @@
       "bytes": 19965
     },
     {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/startup.py",
+      "sha256": "8d2b05ca1ab065381ea9a2b54bcd2f7df3df7ec610bc3cd43b968d9eb6ade43e",
+      "bytes": 3508
+    },
+    {
       "path": "O3/O3_PRODUCT/APP/o3_gui/ui.py",
-      "sha256": "47ec42491c7eb7be5b963cf7e824a4349f0e9db6f1ea3db8801e859cc6af0207",
-      "bytes": 16993
+      "sha256": "14405bbe4225d31b9b233136b4f6c2700942d57cedf3e466dcf6c50110c91818",
+      "bytes": 17167
     },
     {
       "path": "O3/O3_PRODUCT/APP/o3_gui/workbench_tools.py",
@@ -382,13 +397,13 @@
     },
     {
       "path": "READ_ME_FIRST.txt",
-      "sha256": "f300c132323222a91372f5884458a031860b4aa5f942977997349297dda6bff1",
-      "bytes": 2414
+      "sha256": "df060da447204e523d96a8d862023bd247e7ea14eb554665367a6fcc73c9feba",
+      "bytes": 3142
     },
     {
       "path": "review_app.py",
-      "sha256": "6934ae63ed36e97178ae54ceedcad1789544c0d5cf60cdf3e7d5fad78606b7c3",
-      "bytes": 1862
+      "sha256": "afbc2016fff9b7d8d4ed718209b9860c012e90a91633e1f19d085696d7dbaaf5",
+      "bytes": 3193
     },
     {
       "path": "review_examples.py",

@@ -53,6 +53,12 @@ class SettingsHost(QWidget):
     def apply_scale(self,value,persist=True):
         self.scale=value
         if persist:self.config.setdefault('alpha3',{})['text_scale']=value
+    def apply_appearance(self,value,preview=False):
+        from o3_gui.appearance import normalize_appearance
+        self.appearance=normalize_appearance(value);self.scale=self.appearance['text_scale']
+        self.preview_appearance_values=deepcopy(self.appearance) if preview else None
+        if preview and self.preview_theme!=self.appearance['theme']:self.applied.append(self.appearance['theme'])
+        self.preview_theme=self.appearance['theme'] if preview else None
     def persist_preferences(self):
         self.writes+=1
         if not self.fail_save:self.persisted=deepcopy(self.config)
@@ -167,7 +173,7 @@ class HumanCustomizationTest(unittest.TestCase):
         nav=panel.findChild(QListWidget,'settingsNav')
         self.assertEqual([nav.item(i).text() for i in range(nav.count())],['Appearance','Your details','Saved views','Data & backups','About'])
         theme=next(c for c in panel.findChildren(QComboBox) if c.accessibleName()=='Color theme')
-        self.assertEqual(theme.count(),5);theme.setCurrentIndex(theme.findData('night'));self.assertEqual(host.applied,['night'])
+        self.assertEqual(theme.count(),24);theme.setCurrentIndex(theme.findData('night'));self.assertEqual(host.applied,['night'])
         editor=WorkspaceTypeEditor(self.client);self.widgets.append(editor);editor.name.setText('Idea');editor.plural.setText('Ideas');editor.save()
         self.assertTrue(editor.saved,editor.message.text());self.assertFalse(editor.tabs.isTabVisible(1));self.assertFalse(editor.is_dirty())
     def test_appearance_preview_failure_and_cancel_preserve_saved_preferences(self):
@@ -183,7 +189,7 @@ class HumanCustomizationTest(unittest.TestCase):
         panel.reject();self.assertEqual(host.scale,1.0);self.assertIsNone(host.preview_theme);self.assertEqual(host.config,original)
     def test_settings_navigation_grows_for_large_text_without_clipping_labels(self):
         host=SettingsHost(self.client);self.widgets.append(host);panel=SettingsPanel(host);self.widgets.append(panel)
-        nav=panel.findChild(QListWidget,'settingsNav');font=QFont(nav.font());font.setPixelSize(21);nav.setFont(font)
+        nav=panel.findChild(QListWidget,'settingsNav');nav.setStyleSheet('QListWidget { font-size:21px; }');font=QFont(nav.font());font.setPixelSize(21);nav.setFont(font)
         panel.show();APP.processEvents();font.setWeight(QFont.Weight.DemiBold);metrics=QFontMetrics(font)
         for i in range(nav.count()):
             nav.setCurrentRow(i);APP.processEvents()

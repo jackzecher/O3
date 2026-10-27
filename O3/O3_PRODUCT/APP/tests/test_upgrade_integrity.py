@@ -51,7 +51,7 @@ class IntegrityBoundariesTest(unittest.TestCase):
     def test_review_entry_uses_exact_explicit_state_and_lock(self):
         review=load_module('isolated_review_explicit',BUILD/'review_app.py')
         state=self.root/'explicit-state'
-        with patch.object(sys,'argv',['review_app.py','--workspace',str(state)]),patch.object(sys,'path',list(sys.path)), \
+        with patch.object(sys,'argv',['review_app.py','--workspace',str(state),'--no-splash']),patch.object(sys,'path',list(sys.path)), \
              patch('PySide6.QtWidgets.QApplication') as app,patch('o3_gui.app.O3Window') as window, \
              patch('o3_gui.km_client.WorkspaceLock') as lock,patch('o3_gui.logic.read_config',return_value={}):
             lock.return_value.tryLock.return_value=True;app.return_value.exec.return_value=0

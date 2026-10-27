@@ -9,14 +9,15 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 from PySide6.QtCore import Qt,QThread,Signal,QTimer,QByteArray,QRect
-from PySide6.QtGui import QShortcut,QKeySequence,QAction
+from PySide6.QtGui import QShortcut,QKeySequence,QAction,QFont,QTextCursor
 from PySide6.QtWidgets import (QApplication,QMainWindow,QWidget,QFrame,QVBoxLayout,QHBoxLayout,
     QListWidget,QListWidgetItem,QLineEdit,QStackedWidget,QScrollArea,QMenu,QTextBrowser,QDialog,
     QPlainTextEdit,QTabWidget,QMessageBox,QFileDialog,QComboBox,QLabel,QSizePolicy,QTreeWidgetItemIterator)
 from o3_core.engine import default_state
 from . import __version__
 from .ui import text,btn,wrap_btn,icon,rule,section,RecordDelegate
-from .presentation import FONT,CSS,stylesheet_for,native_palette,theme_tokens,application_icon
+from .presentation import FONT,CSS,stylesheet_for,native_palette,theme_tokens,application_icon,font_family
+from .appearance import appearance_from_config,normalize_appearance
 from .logic import TYPE_NAMES,SOURCE_FOLDERS,read_config,save_config,validate_source,discover_sources,retained_navigation_preferences
 from .worker import EngineWorker
 from .km_client import KMClient,WorkspaceLock
@@ -43,14 +44,15 @@ class O3Window(QMainWindow):
     submit=Signal(str,object)
     shutdown=Signal()
     preferences_saved=Signal(bool,str)
+    startup_finished=Signal(bool)
     def __init__(self,state,config,lock):
         super().__init__();self.state=Path(state);self.config=config;self.lock=lock
         self.initialized=False;self.closing=False;self.allow_close=False;self.last_error=None;self.storage_maintenance=False
         self.summary_data={};self.collection_data={};self.record_kinds={};self.home_data={};self.current_detail=None;self.selected_id=None;self.reader_record=None
         self.pending_maintenance=None;self.scan_busy=False;self.active_dialog=None;self.restoring=False
         prefs=config.get('alpha3') if isinstance(config.get('alpha3'),dict) else {}
-        self.scale=prefs.get('text_scale',1.0) if prefs.get('text_scale',1.0) in (1.0,1.25,1.5) else 1.0
-        self.preview_theme=None
+        self.appearance=appearance_from_config(config);self.scale=self.appearance['text_scale']
+        self.preview_theme=None;self.preview_appearance_values=None;self.reader_body=''
         self.page='overview';self.navigation=Navigation(config.get('navigation'));self.nav_ready=False;self.page_positions={}
         self.route_generation=0;self.collection_generation=0;self.collection_ready=False;self.preferences_error=None
         self.reads={op:LatestRead() for op in ('home','list','reading','neighborhood','preview')};self.read_purpose='reader'
@@ -59,7 +61,7 @@ class O3Window(QMainWindow):
         self.startup_timer=QTimer(self);self.startup_timer.setSingleShot(True);self.startup_timer.setInterval(45000);self.startup_timer.timeout.connect(lambda:self.on_failed('initialize','Workspace initialization did not finish within 45 seconds.'))
         self.tick=QTimer(self);self.tick.setInterval(60000);self.tick.timeout.connect(self.periodic_scan)
         self.setWindowTitle('O3 · '+__version__);self.setWindowIcon(application_icon());self.resize(1360,860);self.setMinimumSize(760,640)
-        self.build_ui();self.apply_scale(self.scale,persist=False)
+        self.build_ui();self.apply_appearance(self.appearance)
         # Alpha 2 stores a base64 window inside a geometry dictionary; earlier
         # Alpha 3 candidates store the window directly as a hex string.
         saved_geometry=config.get('geometry')
@@ -198,6 +200,7 @@ class O3Window(QMainWindow):
             self.config.setdefault('alpha3',{})['navigation_adopted']=True
             self.render_route()
         else:self.refresh()
+        self.startup_finished.emit(True)
 
     def install_summary(self,data):
         self.summary_data=data;self.km.configure(data['capabilities']);self.km.maintenance=False
@@ -251,7 +254,7 @@ class O3Window(QMainWindow):
     def on_failed(self,op,error):
         self.last_error=(op,error);self.scan_busy=False;self.status.setText(op.replace('_',' ').capitalize()+' failed · '+error);self.status.show();self.update_sources()
         if op=='scan':self.source_failure=error;self.update_notices();self.submit.emit('overview',{})  # Re-read KM's recorded failed-scan coverage.
-        if op=='initialize':self.startup_timer.stop();self.main.setEnabled(True)
+        if op=='initialize':self.startup_timer.stop();self.main.setEnabled(True);self.startup_finished.emit(False)
         if op in ('restore','migrate'):
             self.storage_maintenance=True;self.show_information('Maintenance stopped',error+'\nThe writer remains stopped. Preserve the backup and consult the recovery guide before reopening.',True)
 
@@ -555,7 +558,7 @@ class O3Window(QMainWindow):
                 if generation!=(self.route_generation,self.collection_generation) or self.page!='collection':return
                 if not response['ok']:
                     self.collection_unavailable(response.get('error',{}).get('message','View fields could not be read.'));return
-                self.configured_table.set_result(r.get('kind'),response['result']['fields'],self.get_view_layout(r.get('kind'),r['view']),structured,key=r['view'])
+                self.configured_table.set_result(r.get('kind'),response['result']['fields'],self.get_view_layout(r.get('kind'),r['view']),structured,key=r['view'],density=self.appearance['density'])
                 self.finish_collection(r,generation)
             self.km.request('builder.schema',{'record_type':r.get('kind') or 'Email'},loaded,owner=self)
             return
@@ -597,8 +600,10 @@ class O3Window(QMainWindow):
         self.reader_notice.setText(notice if len(notice)<=220 else notice[:217]+'… See Source details.');self.reader_notice.setToolTip('<pre>'+html.escape(notice)+'</pre>');self.reader_notice.setAccessibleName(notice);self.reader_notice.setVisible(bool(notice));self.reader_text.setHtml(self.body_html(body));self.draw_reader_context(d);self.followup.setVisible(kind=='Email');self.followup.setEnabled(True);self.reader_text.setFocus();self.restore_scroll();self.status.setVisible(bool(self.preferences_error));self.adapt()
 
     def body_html(self,body):
+        self.reader_body=body
         escaped=html.escape(body).replace('\n\n','</p><p>').replace('\n','<br>')
-        return '<html><head><style>body{font-family:"'+FONT+'";font-size:'+str(round(17*self.scale))+'px;color:'+theme_tokens(self.preview_theme or self.config.get('alpha3',{}).get('theme','harbor'))['body']+'}p{line-height:145%;margin-bottom:20px}</style></head><body><p>'+escaped+'</p></body></html>'
+        a=self.appearance;family=font_family(a,reader=True);color=theme_tokens(a['theme'],a)['body']
+        return '<html><head><style>body{font-family:"'+family+'";font-size:'+str(round(17*self.scale*a['reader_scale']))+'px;color:'+color+'}p{line-height:'+str(round(a['line_spacing']*100))+'%;margin-bottom:'+str(round(14*self.scale))+'px}</style></head><body><p>'+escaped+'</p></body></html>'
 
     def add_connection(self,layout,d,e):
         layout.addWidget(text(connection_caption(d['kind'],e)+(' · by you' if e.get('authority')!='core' else ''),'small',True))
@@ -866,18 +871,44 @@ class O3Window(QMainWindow):
                 self.update_commands();self.commands[d.choice['command']].trigger()
 
     def apply_scale(self,scale,persist=True):
-        self.scale=scale;theme=self.preview_theme or self.config.get('alpha3',{}).get('theme','harbor');QApplication.instance().setProperty('o3_theme',theme);QApplication.instance().setStyleSheet(stylesheet_for(scale=scale,theme=theme));QApplication.instance().setPalette(native_palette(theme=theme))
-        if persist:self.config.setdefault('alpha3',{})['text_scale']=scale;self.preference_timer.start()
-        if self.current_detail and self.page=='reader':self.paint_reader(self.current_detail)
-        self.adapt()
+        value={**self.appearance,'text_scale':scale}
+        self.apply_appearance(value,preview=self.preview_appearance_values is not None)
+        if persist:self.config.setdefault('alpha3',{})['text_scale']=self.scale;self.preference_timer.start()
+
+    def apply_appearance(self,value,preview=False):
+        self.appearance=normalize_appearance(value);self.scale=self.appearance['text_scale'];theme=self.appearance['theme']
+        self.preview_appearance_values=copy.deepcopy(self.appearance) if preview else None
+        self.preview_theme=theme if preview else None
+        app=QApplication.instance();app.setProperty('o3_theme',theme);app.setProperty('o3_appearance',self.appearance)
+        app.setProperty('o3_tokens',theme_tokens(theme,self.appearance))
+        font=QFont(font_family(self.appearance));font.setPixelSize(round(15*self.scale));app.setFont(font)
+        app.setStyleSheet(stylesheet_for(scale=self.scale,theme=theme,appearance=self.appearance))
+        app.setPalette(native_palette(theme,self.appearance))
+        if self.current_detail and self.page=='reader':
+            scroll=self.reader_text.verticalScrollBar().value();cursor=self.reader_text.textCursor()
+            anchor,position=cursor.anchor(),cursor.position()
+            self.reader_text.setHtml(self.body_html(self.reader_body))
+            cursor=self.reader_text.textCursor();limit=self.reader_text.document().characterCount()-1
+            cursor.setPosition(min(anchor,limit));cursor.setPosition(min(position,limit),QTextCursor.MoveMode.KeepAnchor)
+            self.reader_text.setTextCursor(cursor);self.reader_text.verticalScrollBar().setValue(scroll)
+        for listing in (self.mail_list,self.collection_list,self.mail_workspace.listing):
+            listing.doItemsLayout();listing.viewport().update()
+        configured=self.configured_table
+        if configured.layout_value:
+            spacing=configured.layout_value['density'];spacing=self.appearance['density'] if spacing=='inherit' else spacing
+            height={'compact':28,'balanced':34,'comfortable':42}[spacing]+(16 if configured.layout_value['secondary'] else 0)
+            configured.tree.setStyleSheet('QTreeView::item { min-height: '+str(height)+'px; }')
+        self.adapt();self.update()
     def resizeEvent(self,event):super().resizeEvent(event);self.adapt()
     def adapt(self):
         if not hasattr(self,'sidebar'):return
         self.compact=self.width()<round(1120*self.scale)
-        compact=self.compact;self.sidebar.setVisible(not compact);self.workspace_menu.setVisible(compact)
+        compact=self.compact;quiet=self.appearance['navigation']=='focus'
+        self.sidebar.setVisible(not compact and not quiet);self.workspace_menu.setVisible(compact or quiet)
         self.right.setVisible(not compact);self.reader_side.setVisible(not compact)
         self.context_button.setVisible(compact and self.page in ('reader','overview'))
         self.crumb.setVisible(not compact);self.main_l.setContentsMargins(20 if compact else 36,20,20 if compact else 36,20)
+        self.reading.setMaximumWidth({'narrow':640,'comfortable':820,'wide':16777215}[self.appearance['reading_width']])
         if hasattr(self,'reader_title'):
             maximum=self.reader_title.fontMetrics().lineSpacing()*2+6
             self.reader_title.setMaximumHeight(maximum)
@@ -885,10 +916,9 @@ class O3Window(QMainWindow):
             self.title_expand.setVisible(needed>maximum)
 
     def apply_theme(self,theme,persist=True):
-        if persist:
-            self.config.setdefault('alpha3',{})['theme']=theme;self.preview_theme=None
-        else:self.preview_theme=theme
-        self.apply_scale(self.scale,persist=False)
+        value={**self.appearance,'theme':theme}
+        self.apply_appearance(value,preview=not persist)
+        if persist:self.config.setdefault('alpha3',{})['theme']=self.appearance['theme']
         if persist:self.persist_preferences()
         self.update()
 
@@ -973,7 +1003,7 @@ class O3Window(QMainWindow):
 
     def on_maintenance(self,data):
         self.initialized=False;self.pending_maintenance=data;self.km.maintenance=True;self.startup_timer.stop();self.tick.stop();self.main.setEnabled(True);self.status.setText('Protected upgrade required · no writer opened');self.status.show()
-        QTimer.singleShot(0,self.open_sources)
+        self.startup_finished.emit(False);QTimer.singleShot(0,self.open_sources)
     def begin_migration(self):
         if not self.pending_maintenance or self.storage_maintenance:return
         source=self.config.get('source_root') or QFileDialog.getExistingDirectory(self,'Select the existing O3Data root')

@@ -14,6 +14,8 @@ from . import __version__
 from .source_status import FAMILIES,STATES,source_states
 from .human_customization import SavedViewsDialog, SECTION_NAMES
 from .presentation import THEME_CHOICES
+from .appearance import appearance_from_config, store_appearance, saved_looks
+from .appearance_editor import AppearanceEditor
 
 
 class SettingsNavigation(QListWidget):
@@ -37,30 +39,24 @@ class SettingsNavigation(QListWidget):
 
 class SettingsPanel(QDialog):
     def __init__(self,w):
-        super().__init__(w);self.w=w;self.setWindowTitle('Settings');self.resize(850,660)
+        super().__init__(w);self.w=w;self.setWindowTitle('Settings');self.resize(1080,850)
         self.opening_theme=w.config.get('alpha3',{}).get('theme','harbor');self.opening_scale=w.scale
+        self.opening_appearance=appearance_from_config(w.config)
         self.appearance_committed=False;self.appearance_save_failed=False
         root=QVBoxLayout(self);root.setContentsMargins(28,24,28,20);root.setSpacing(18)
         root.addWidget(text('Settings','title'));root.addWidget(text('O3 is ready to use. Make it feel like yours when you want to.','muted',True))
-        body=QHBoxLayout();nav=SettingsNavigation()
+        self.section_choice=QComboBox();self.section_choice.setAccessibleName('Settings section');root.addWidget(self.section_choice)
+        body=QHBoxLayout();nav=SettingsNavigation();self.settings_navigation=nav
         for title in ('Appearance','Your details','Saved views','Data & backups','About'):nav.addItem(title)
+        self.section_choice.addItems([nav.item(i).text() for i in range(nav.count())])
+        self.section_choice.currentIndexChanged.connect(nav.setCurrentRow);nav.currentRowChanged.connect(self.section_choice.setCurrentIndex)
         nav.fit_labels()
         stack=QStackedWidget();body.addWidget(nav);body.addWidget(stack,1);root.addLayout(body,1);nav.currentRowChanged.connect(stack.setCurrentIndex)
         def page(title,description):
             widget=QWidget();l=QVBoxLayout(widget);l.setContentsMargins(20,4,12,4);l.setSpacing(14);l.addWidget(text(title,'section'));l.addWidget(text(description,'muted',True));scroll=QScrollArea();scroll.setWidgetResizable(True);scroll.setWidget(widget);stack.addWidget(scroll);return l
-        l=page('Appearance','Preview a theme and text size. Save your choices when you are happy with them, or cancel to return to your previous appearance.')
-        l.addWidget(text('Color theme','body'));theme=QComboBox();self.theme=theme;theme.setAccessibleName('Color theme')
-        for key,title in THEME_CHOICES:theme.addItem(title,key)
-        theme.setCurrentIndex(max(0,theme.findData(self.opening_theme)));theme.currentIndexChanged.connect(self.preview_appearance);l.addWidget(theme)
-        l.addWidget(text('Text size','body'));scale=QComboBox();self.scale_choice=scale;scale.setAccessibleName('Text size')
-        for title,value in [('Standard · 100%',1.0),('Larger · 125%',1.25),('Largest · 150%',1.5)]:scale.addItem(title,value)
-        scale.setCurrentIndex(max(0,scale.findData(w.scale)));scale.currentIndexChanged.connect(self.preview_appearance);l.addWidget(scale)
-        def reset_appearance():
-            theme.blockSignals(True);scale.blockSignals(True)
-            theme.setCurrentIndex(theme.findData('harbor'));scale.setCurrentIndex(scale.findData(1.0))
-            theme.blockSignals(False);scale.blockSignals(False)
-            self.preview_appearance()
-        l.addWidget(btn('Restore default appearance',reset_appearance,kind='link'));l.addStretch()
+        self.appearance_editor=AppearanceEditor(self.opening_appearance,saved_looks(w.config.get('alpha3',{}).get('saved_looks')))
+        self.theme=self.appearance_editor.theme;self.scale_choice=self.appearance_editor.scale_choice
+        stack.addWidget(self.appearance_editor);self.appearance_editor.changed.connect(self.preview_appearance)
         l=page('Your details','Tell O3 which email addresses are yours, and how you want dates displayed.')
         l.addWidget(btn('Email addresses, dates & time…',lambda:w.run_dialog(SharedSettings(w.km,self)),kind='primary'));l.addWidget(btn('Calendar names…',lambda:w.run_dialog(CalendarSources(w.km,w.config.get('source_root'),self)),kind='secondary'))
         l.addWidget(rule());l.addWidget(text('Remembering your place','body'))
@@ -84,25 +80,34 @@ class SettingsPanel(QDialog):
         self.retry_settings=btn('Try saving appearance again',self.save_appearance,kind='secondary');root.addWidget(self.retry_settings);w.preferences_saved.connect(self.saved)
         self.saved(not bool(w.preferences_error),w.preferences_error or '')
         nav.setCurrentRow(0);row=QHBoxLayout();row.addStretch();row.addWidget(btn('Cancel appearance',self.reject,kind='secondary'));row.addWidget(btn('Save appearance',self.save_appearance,kind='primary'));root.addLayout(row)
+        self.adapt_settings()
+    def adapt_settings(self):
+        if not hasattr(self,'settings_navigation'):return
+        compact=self.width()<round(920*self.w.scale)
+        self.settings_navigation.setVisible(not compact);self.section_choice.setVisible(compact)
+    def resizeEvent(self,event):
+        super().resizeEvent(event);self.adapt_settings()
+    def changeEvent(self,event):
+        super().changeEvent(event)
+        if event.type() in (QEvent.FontChange,QEvent.StyleChange):self.adapt_settings()
     def preview_appearance(self,*_):
-        if not hasattr(self,'scale_choice'):return
-        self.w.apply_theme(self.theme.currentData(),persist=False)
-        self.w.apply_scale(self.scale_choice.currentData(),persist=False)
+        self.w.apply_appearance(self.appearance_editor.get_value(),preview=True)
     def save_appearance(self):
         prefs=self.w.config.setdefault('alpha3',{})
-        before={key:prefs[key] for key in ('theme','text_scale') if key in prefs}
-        prefs['theme']=self.theme.currentData();prefs['text_scale']=self.scale_choice.currentData()
+        keys=('theme','text_scale','appearance','saved_looks')
+        before={key:deepcopy(prefs[key]) for key in keys if key in prefs}
+        store_appearance(self.w.config,self.appearance_editor.get_value())
+        prefs['saved_looks']=deepcopy(self.appearance_editor.looks)
         self.appearance_save_failed=False
         if not self.w.persist_preferences():
-            for key in ('theme','text_scale'):
+            for key in keys:
                 if key in before:prefs[key]=before[key]
                 else:prefs.pop(key,None)
             self.appearance_save_failed=True;self.saved(False,'');return
-        self.w.preview_theme=None;self.appearance_committed=True;super().accept()
+        self.w.apply_appearance(self.appearance_editor.get_value());self.appearance_committed=True;super().accept()
     def reject(self):
         if not self.appearance_committed:
-            self.w.apply_theme(self.opening_theme,persist=False);self.w.apply_scale(self.opening_scale,persist=False)
-            self.w.preview_theme=None
+            self.w.apply_appearance(self.opening_appearance)
         super().reject()
     def saved(self,ok,error):
         if ok and self.appearance_save_failed:return

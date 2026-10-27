@@ -1,0 +1,516 @@
+{
+  "platform": "windows",
+  "font_registration": [],
+  "checks": [
+    {
+      "name": "True fresh workspace opens without project reconciliation",
+      "pass": true,
+      "details": {
+        "project_reconciliation": null,
+        "error": null
+      }
+    },
+    {
+      "name": "D5 source setup action visible and keyboard reachable at compact 150%",
+      "pass": true,
+      "details": {
+        "button": [
+          18,
+          147,
+          247,
+          52
+        ],
+        "visible_rect": [
+          0,
+          0,
+          247,
+          52
+        ]
+      }
+    },
+    {
+      "name": "D6 keyboard opens complete selectable title",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "D6 full-title reader has accessible name",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Connections focal visible at compact 150%",
+      "pass": true,
+      "details": {
+        "focal": [
+          33,
+          90,
+          333,
+          123
+        ],
+        "viewport": [
+          0,
+          0,
+          810,
+          346
+        ]
+      }
+    },
+    {
+      "name": "Connections first neighbor visible at compact 150%",
+      "pass": true,
+      "details": {
+        "first": [
+          444,
+          90,
+          333,
+          96
+        ],
+        "viewport": [
+          0,
+          0,
+          810,
+          346
+        ]
+      }
+    },
+    {
+      "name": "Connections no horizontal panning required",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Connections cards and edges have accessible names",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Settings 150% controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Settings 150% interactive controls have accessible names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Settings 150% button labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Settings 150% wrapped descriptions fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Mail Personalize 150% controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Mail Personalize 150% interactive controls have accessible names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Mail Personalize 150% button labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Mail Personalize 150% wrapped descriptions fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Saved-view editor 150% controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Saved-view editor 150% interactive controls have accessible names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Saved-view editor 150% button labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Saved-view editor 150% wrapped descriptions fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "D7 all long month dates measured and fully allocated",
+      "pass": true,
+      "details": [
+        {
+          "month": "January",
+          "width": 280,
+          "measured": 212,
+          "allocated": 214,
+          "reflow": true,
+          "available": 254,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "January",
+          "width": 420,
+          "measured": 212,
+          "allocated": 214,
+          "reflow": true,
+          "available": 394,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "January",
+          "width": 760,
+          "measured": 212,
+          "allocated": 214,
+          "reflow": false,
+          "available": 734,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "February",
+          "width": 280,
+          "measured": 223,
+          "allocated": 225,
+          "reflow": true,
+          "available": 254,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "February",
+          "width": 420,
+          "measured": 223,
+          "allocated": 225,
+          "reflow": true,
+          "available": 394,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "February",
+          "width": 760,
+          "measured": 223,
+          "allocated": 225,
+          "reflow": false,
+          "available": 734,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "March",
+          "width": 280,
+          "measured": 201,
+          "allocated": 203,
+          "reflow": true,
+          "available": 254,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "March",
+          "width": 420,
+          "measured": 201,
+          "allocated": 203,
+          "reflow": true,
+          "available": 394,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "March",
+          "width": 760,
+          "measured": 201,
+          "allocated": 203,
+          "reflow": false,
+          "available": 734,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "April",
+          "width": 280,
+          "measured": 188,
+          "allocated": 190,
+          "reflow": true,
+          "available": 254,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "April",
+          "width": 420,
+          "measured": 188,
+          "allocated": 190,
+          "reflow": true,
+          "available": 394,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "April",
+          "width": 760,
+          "measured": 188,
+          "allocated": 190,
+          "reflow": false,
+          "available": 734,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "May",
+          "width": 280,
+          "measured": 184,
+          "allocated": 186,
+          "reflow": true,
+          "available": 254,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "May",
+          "width": 420,
+          "measured": 184,
+          "allocated": 186,
+          "reflow": true,
+          "available": 394,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "May",
+          "width": 760,
+          "measured": 184,
+          "allocated": 186,
+          "reflow": false,
+          "available": 734,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "June",
+          "width": 280,
+          "measured": 185,
+          "allocated": 187,
+          "reflow": true,
+          "available": 254,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "June",
+          "width": 420,
+          "measured": 185,
+          "allocated": 187,
+          "reflow": true,
+          "available": 394,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "June",
+          "width": 760,
+          "measured": 185,
+          "allocated": 187,
+          "reflow": false,
+          "available": 734,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "July",
+          "width": 280,
+          "measured": 179,
+          "allocated": 181,
+          "reflow": true,
+          "available": 254,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "July",
+          "width": 420,
+          "measured": 179,
+          "allocated": 181,
+          "reflow": true,
+          "available": 394,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "July",
+          "width": 760,
+          "measured": 179,
+          "allocated": 181,
+          "reflow": false,
+          "available": 734,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "August",
+          "width": 280,
+          "measured": 209,
+          "allocated": 211,
+          "reflow": true,
+          "available": 254,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "August",
+          "width": 420,
+          "measured": 209,
+          "allocated": 211,
+          "reflow": true,
+          "available": 394,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "August",
+          "width": 760,
+          "measured": 209,
+          "allocated": 211,
+          "reflow": false,
+          "available": 734,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "September",
+          "width": 280,
+          "measured": 242,
+          "allocated": 244,
+          "reflow": true,
+          "available": 254,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "September",
+          "width": 420,
+          "measured": 242,
+          "allocated": 244,
+          "reflow": true,
+          "available": 394,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "September",
+          "width": 760,
+          "measured": 242,
+          "allocated": 244,
+          "reflow": false,
+          "available": 734,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "October",
+          "width": 280,
+          "measured": 218,
+          "allocated": 220,
+          "reflow": true,
+          "available": 254,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "October",
+          "width": 420,
+          "measured": 218,
+          "allocated": 220,
+          "reflow": true,
+          "available": 394,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "October",
+          "width": 760,
+          "measured": 218,
+          "allocated": 220,
+          "reflow": false,
+          "available": 734,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "November",
+          "width": 280,
+          "measured": 239,
+          "allocated": 241,
+          "reflow": true,
+          "available": 254,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "November",
+          "width": 420,
+          "measured": 239,
+          "allocated": 241,
+          "reflow": true,
+          "available": 394,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "November",
+          "width": 760,
+          "measured": 239,
+          "allocated": 241,
+          "reflow": false,
+          "available": 734,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "December",
+          "width": 280,
+          "measured": 235,
+          "allocated": 237,
+          "reflow": true,
+          "available": 254,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "December",
+          "width": 420,
+          "measured": 235,
+          "allocated": 237,
+          "reflow": true,
+          "available": 394,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "December",
+          "width": 760,
+          "measured": 235,
+          "allocated": 237,
+          "reflow": false,
+          "available": 734,
+          "lines": 1,
+          "pass": true
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "qualification": "Isolated development application UI, not O3.exe or managed runtime."
+}

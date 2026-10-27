@@ -2,6 +2,7 @@ __pycache__/
 .venv/
 .env
 .env.*
+*.log
 *.pyc
 AI_RUNTIME/wheels/
 AI_RUNTIME/licenses/

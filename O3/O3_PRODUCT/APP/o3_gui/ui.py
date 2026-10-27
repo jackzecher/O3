@@ -122,7 +122,9 @@ class RecordDelegate(QStyledItemDelegate):
         separate_date = bool(date and (date_width > width * .43 or width - date_width - 20 < base * 9))
         date_lines = max(1, (sm.boundingRect(0, 0, width, 9999, Qt.TextWordWrap, date).height() + sm.height() - 1) // sm.height()) if separate_date else 1
         title_width = width if separate_date or not date else width - date_width - 20
-        gap, top = max(3, round(base * .22)), max(7, round(base * .48))
+        from .presentation import current_appearance
+        spacing = {'compact':.72,'balanced':1.0,'comfortable':1.55}[current_appearance()['density']]
+        gap, top = max(3, round(base * .22 * spacing)), max(5, round(base * .48 * spacing))
         title_y = top
         meta_y = title_y + fm.height() + gap
         date_y = meta_y + sm.height() + gap if separate_date else title_y + 1

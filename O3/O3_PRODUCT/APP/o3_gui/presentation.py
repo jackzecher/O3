@@ -3,10 +3,10 @@ import sys
 from pathlib import Path
 from PySide6.QtGui import QPalette, QColor, QIcon
 from .ui import stylesheet, icon, INK, MUTED, BLUE, PALE, LINE
+from .appearance import (THEMES, THEME_CHOICES, normalize_appearance, derived_theme,
+                         readable, contrast, mix, luminance)
 
 FONT = 'Segoe UI' if sys.platform == 'win32' else 'Nimbus Sans [UKWN]'
-THEME_CHOICES = (('harbor', 'Harbor'), ('warm-paper', 'Warm Paper'),
-                 ('sage', 'Sage'), ('slate', 'Slate'), ('night', 'Night'))
 _THEMES = {
     'harbor': dict(canvas='#ffffff', rail='#f3f6fa', surface='#f6f8fb', body='#243247',
         muted='#57677b', accent='#285d9a', accent_hover='#1d4a80', selection='#e5eef9',
@@ -34,14 +34,32 @@ _THEMES = {
         success='#9bd6b5', warn='#eac67c', error='#ffb2ab', error_surface='#452c33',
         focus='#a8cdff', edge='#94a9c5', scrollbar='#62748e', disabled='#9ba9bb'),
 }
+for _key in THEMES:
+    if _key not in _THEMES:
+        _THEMES[_key] = derived_theme(_key)
 
-def theme_tokens(theme='harbor'):
+def theme_tokens(theme='harbor', appearance=None):
     """Return independent tokens; unknown historic preferences safely use Harbor."""
     c = dict(_THEMES.get(theme, _THEMES['harbor']))
+    prefs = normalize_appearance(appearance)
+    if prefs['accent']:
+        c['accent'] = prefs['accent']
+        c['selection'] = mix(c['canvas'], c['accent'], .18 if luminance(c['canvas']) < .2 else .12)
+    surfaces = [c[k] for k in ('canvas', 'rail', 'surface', 'control', 'selection', 'hover')]
+    minimum = 7.0 if prefs['contrast'] else 4.5
+    for key in ('body', 'muted', 'accent'):
+        c[key] = readable(c[key], surfaces, minimum)
+    c['accent_hover'] = readable(mix(c['accent'], c['body'], .15), surfaces, minimum)
+    c['focus'] = c['accent']
+    if prefs['contrast']:
+        c['border'] = readable(c['border'], [c['canvas'], c['control']], 3.0)
+        c['border_soft'] = c['border']
+        c['disabled'] = readable(c['disabled'], surfaces, 4.5)
+    foreground = max(('#ffffff', '#172437'), key=lambda v: min(contrast(v, c[k]) for k in ('accent', 'accent_hover')))
     c.update(panel=c['canvas'], panel_light=c['surface'], selection_text=c['body'],
         selected_side=c['selection'], white=c['body'], dim=c['muted'], link=c['accent'],
         accent_hot=c['accent'], control_hover=c['hover'], control_border=c['border'],
-        on_accent='#172437' if theme == 'night' else '#ffffff', tooltip='#1b2839',
+        on_accent=foreground, tooltip='#1b2839',
         tooltip_text='#ffffff')
     return c
 
@@ -70,6 +88,8 @@ def current_tokens():
     from PySide6.QtWidgets import QApplication
     app = QApplication.instance()
     if app:
+        cached = app.property('o3_tokens')
+        if isinstance(cached, dict): return cached
         name = app.property('o3_theme')
         if name in _THEMES: return theme_tokens(name)
         background = app.palette().color(QPalette.Window).name()
@@ -77,8 +97,22 @@ def current_tokens():
             if values['canvas'] == background: return theme_tokens(key)
     return theme_tokens()
 
-def native_palette(theme='harbor'):
-    c = theme_tokens(theme)
+def current_appearance():
+    from PySide6.QtWidgets import QApplication
+    app = QApplication.instance()
+    return normalize_appearance(app.property('o3_appearance') if app else None)
+
+
+def font_family(appearance=None, reader=False):
+    prefs = normalize_appearance(appearance)
+    family = {'default': FONT, 'open': 'Verdana', 'soft': 'Trebuchet MS'}[prefs['font']]
+    if reader:
+        return {'match': family, 'book': 'Georgia', 'plain': 'Consolas'}[prefs['reader_font']]
+    return family
+
+
+def native_palette(theme='harbor', appearance=None):
+    c = theme_tokens(theme, appearance)
     p = QPalette()
     for role, token in {'Window':'canvas', 'WindowText':'body', 'Base':'canvas',
         'AlternateBase':'surface', 'Text':'body', 'Button':'control', 'ButtonText':'body',
@@ -92,12 +126,15 @@ def native_palette(theme='harbor'):
         p.setColor(QPalette.Disabled, role, QColor(c['disabled']))
     return p
 
-def stylesheet_for(density='compact', scale=1.0, theme='harbor'):
-    c = theme_tokens(theme)
+def stylesheet_for(density='compact', scale=1.0, theme='harbor', appearance=None):
+    prefs = normalize_appearance(appearance)
+    c = theme_tokens(theme, prefs)
+    density = prefs['density'] if appearance is not None else density
+    padding = {'compact': 4, 'balanced': 6, 'comfortable': 9}[density]
     asset_dir = Path(__file__).with_name('assets').as_posix()
-    arrow = 'chevron-light.svg' if theme == 'night' else 'chevron-dark.svg'
-    checkmark = 'check-dark.svg' if theme == 'night' else 'check-light.svg'
-    return stylesheet(scale, FONT, c) + f'''
+    arrow = 'chevron-light.svg' if luminance(c['canvas']) < .2 else 'chevron-dark.svg'
+    checkmark = 'check-dark.svg' if luminance(c['on_accent']) < .2 else 'check-light.svg'
+    return stylesheet(scale, font_family(prefs), c) + f'''
     QDialog {{ background:{c['canvas']}; }}
     QListWidget#settingsNav::item {{ padding:10px 12px; margin:2px 0; border-radius:7px; }}
     QListWidget#settingsNav::item:selected {{ background:{c['selection']}; color:{c['body']}; font-weight:600; }}
@@ -115,7 +152,7 @@ def stylesheet_for(density='compact', scale=1.0, theme='harbor'):
     QToolButton {{ border:1px solid {c['border']}; padding:6px 10px; border-radius:6px; background:{c['control']}; }}
     QToolButton:checked, QPushButton:checked {{ background:{c['selection']}; color:{c['body']}; }}
     QTableView, QTreeView, QPlainTextEdit {{ background:{c['canvas']}; border:1px solid {c['border']}; border-radius:6px; selection-background-color:{c['selection']}; selection-color:{c['body']}; }}
-    QTreeView::item, QTableView::item {{ padding:6px; border-bottom:1px solid {c['border_soft']}; }}
+    QTreeView::item, QTableView::item {{ padding:{padding}px; border-bottom:1px solid {c['border_soft']}; }}
     QTreeView::item:selected, QTableView::item:selected {{ background:{c['selection']}; color:{c['body']}; }}
     QHeaderView::section {{ background:{c['surface']}; color:{c['muted']}; border:0; border-bottom:1px solid {c['border']}; padding:9px; text-align:left; }}
     QTabWidget::pane {{ border:0; border-top:1px solid {c['border']}; }}
@@ -128,6 +165,11 @@ def stylesheet_for(density='compact', scale=1.0, theme='harbor'):
     QSplitter::handle {{ background:{c['border_soft']}; }}
     QProgressBar {{ border:1px solid {c['border']}; border-radius:4px; background:{c['surface']}; color:{c['body']}; text-align:center; }}
     QProgressBar::chunk {{ background:{c['accent']}; border-radius:3px; }}
+    QPushButton[kind="nav"] {{ padding:{padding+3}px 11px; }}
+    QFrame#appearancePreview {{ border:1px solid {c['border']}; border-radius:12px; background:{c['surface']}; }}
+    QLabel#appearanceHint {{ color:{c['muted']}; }}
+    QSlider::groove:horizontal {{ height:5px; background:{c['border']}; border-radius:2px; }}
+    QSlider::handle:horizontal {{ width:18px; margin:-7px 0; border-radius:9px; background:{c['accent']}; }}
     '''
 
 CSS = stylesheet_for()

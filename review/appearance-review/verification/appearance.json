@@ -1,0 +1,1016 @@
+{
+  "platform": "windows",
+  "checks": [
+    {
+      "name": "Welcome hands off on real workspace readiness",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "light gallery has twelve distinct choices",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "dark gallery has twelve distinct choices",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Settings 100% accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Settings 100% controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Settings 100% labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Settings 100% Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Settings 100% fits the available screen",
+      "pass": true,
+      "details": [
+        1080,
+        850
+      ]
+    },
+    {
+      "name": "Theme can be selected with the keyboard",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Compact Settings 1.0 accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Compact Settings 1.0 controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Compact Settings 1.0 labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Compact Settings 1.0 Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Compact Settings 1.0 fits the available screen",
+      "pass": true,
+      "details": [
+        760,
+        832
+      ]
+    },
+    {
+      "name": "Compact Settings retains requested width 1.0",
+      "pass": true,
+      "details": [
+        760,
+        832
+      ]
+    },
+    {
+      "name": "Compact Settings exposes every section 1.0",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Compact Settings 1.5 accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Compact Settings 1.5 controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Compact Settings 1.5 labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Compact Settings 1.5 Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Compact Settings 1.5 fits the available screen",
+      "pass": true,
+      "details": [
+        760,
+        1239
+      ]
+    },
+    {
+      "name": "Compact Settings retains requested width 1.5",
+      "pass": true,
+      "details": [
+        760,
+        1239
+      ]
+    },
+    {
+      "name": "Compact Settings exposes every section 1.5",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Preview has not changed saved appearance",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Themes 150% default accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Themes 150% default controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Themes 150% default labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Themes 150% default Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Themes 150% default fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1222
+      ]
+    },
+    {
+      "name": "Themes bottom 150% default accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Themes bottom 150% default controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Themes bottom 150% default labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Themes bottom 150% default Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Themes bottom 150% default fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1222
+      ]
+    },
+    {
+      "name": "Colors 150% default accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Colors 150% default controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Colors 150% default labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Colors 150% default Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Colors 150% default fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1222
+      ]
+    },
+    {
+      "name": "Colors bottom 150% default accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Colors bottom 150% default controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Colors bottom 150% default labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Colors bottom 150% default Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Colors bottom 150% default fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1222
+      ]
+    },
+    {
+      "name": "Text 150% default accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Text 150% default controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Text 150% default labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Text 150% default Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Text 150% default fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1222
+      ]
+    },
+    {
+      "name": "Text bottom 150% default accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Text bottom 150% default controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Text bottom 150% default labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Text bottom 150% default Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Text bottom 150% default fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1222
+      ]
+    },
+    {
+      "name": "Layout 150% default accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Layout 150% default controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Layout 150% default labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Layout 150% default Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Layout 150% default fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1222
+      ]
+    },
+    {
+      "name": "Layout bottom 150% default accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Layout bottom 150% default controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Layout bottom 150% default labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Layout bottom 150% default Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Layout bottom 150% default fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1222
+      ]
+    },
+    {
+      "name": "My looks 150% default accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "My looks 150% default controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "My looks 150% default labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "My looks 150% default Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "My looks 150% default fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1222
+      ]
+    },
+    {
+      "name": "My looks bottom 150% default accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "My looks bottom 150% default controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "My looks bottom 150% default labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "My looks bottom 150% default Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "My looks bottom 150% default fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1222
+      ]
+    },
+    {
+      "name": "Themes 150% open accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Themes 150% open controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Themes 150% open labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Themes 150% open Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Themes 150% open fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1125
+      ]
+    },
+    {
+      "name": "Themes bottom 150% open accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Themes bottom 150% open controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Themes bottom 150% open labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Themes bottom 150% open Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Themes bottom 150% open fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1125
+      ]
+    },
+    {
+      "name": "Colors 150% open accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Colors 150% open controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Colors 150% open labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Colors 150% open Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Colors 150% open fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1125
+      ]
+    },
+    {
+      "name": "Colors bottom 150% open accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Colors bottom 150% open controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Colors bottom 150% open labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Colors bottom 150% open Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Colors bottom 150% open fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1125
+      ]
+    },
+    {
+      "name": "Text 150% open accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Text 150% open controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Text 150% open labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Text 150% open Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Text 150% open fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1125
+      ]
+    },
+    {
+      "name": "Text bottom 150% open accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Text bottom 150% open controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Text bottom 150% open labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Text bottom 150% open Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Text bottom 150% open fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1125
+      ]
+    },
+    {
+      "name": "Layout 150% open accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Layout 150% open controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Layout 150% open labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Layout 150% open Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Layout 150% open fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1125
+      ]
+    },
+    {
+      "name": "Layout bottom 150% open accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Layout bottom 150% open controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Layout bottom 150% open labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Layout bottom 150% open Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Layout bottom 150% open fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1125
+      ]
+    },
+    {
+      "name": "My looks 150% open accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "My looks 150% open controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "My looks 150% open labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "My looks 150% open Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "My looks 150% open fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1125
+      ]
+    },
+    {
+      "name": "My looks bottom 150% open accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "My looks bottom 150% open controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "My looks bottom 150% open labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "My looks bottom 150% open Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "My looks bottom 150% open fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1125
+      ]
+    },
+    {
+      "name": "Themes 150% soft accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Themes 150% soft controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Themes 150% soft labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Themes 150% soft Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Themes 150% soft fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1091
+      ]
+    },
+    {
+      "name": "Themes bottom 150% soft accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Themes bottom 150% soft controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Themes bottom 150% soft labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Themes bottom 150% soft Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Themes bottom 150% soft fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1091
+      ]
+    },
+    {
+      "name": "Colors 150% soft accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Colors 150% soft controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Colors 150% soft labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Colors 150% soft Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Colors 150% soft fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1091
+      ]
+    },
+    {
+      "name": "Colors bottom 150% soft accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Colors bottom 150% soft controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Colors bottom 150% soft labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Colors bottom 150% soft Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Colors bottom 150% soft fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1091
+      ]
+    },
+    {
+      "name": "Text 150% soft accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Text 150% soft controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Text 150% soft labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Text 150% soft Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Text 150% soft fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1091
+      ]
+    },
+    {
+      "name": "Text bottom 150% soft accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Text bottom 150% soft controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Text bottom 150% soft labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Text bottom 150% soft Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Text bottom 150% soft fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1091
+      ]
+    },
+    {
+      "name": "Layout 150% soft accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Layout 150% soft controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Layout 150% soft labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Layout 150% soft Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Layout 150% soft fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1091
+      ]
+    },
+    {
+      "name": "Layout bottom 150% soft accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Layout bottom 150% soft controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Layout bottom 150% soft labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Layout bottom 150% soft Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Layout bottom 150% soft fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1091
+      ]
+    },
+    {
+      "name": "My looks 150% soft accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "My looks 150% soft controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "My looks 150% soft labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "My looks 150% soft Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "My looks 150% soft fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1091
+      ]
+    },
+    {
+      "name": "My looks bottom 150% soft accessible control names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "My looks bottom 150% soft controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "My looks bottom 150% soft labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "My looks bottom 150% soft Save and Cancel fully reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "My looks bottom 150% soft fits the available screen",
+      "pass": true,
+      "details": [
+        960,
+        1091
+      ]
+    },
+    {
+      "name": "Failed save retains preview and library without writing",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Retry saves the complete appearance and look",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Cancel returns to the saved look",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Quiet layout keeps navigation reachable",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Reading width is applied",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Appearance preview preserves reading selection",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Appearance survives reopening",
+      "pass": true,
+      "details": null
+    }
+  ],
+  "errors": []
+}

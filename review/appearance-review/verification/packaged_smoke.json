@@ -1,0 +1,14 @@
+{
+  "build": "3.0.0-alpha3.upgrade2-dev",
+  "payload_hashes": 81,
+  "title": "O3 \u00b7 Upgrade review",
+  "window_icon": true,
+  "application_icon": true,
+  "splash_count": 1,
+  "handoff_succeeded": true,
+  "splash_closed": true,
+  "mail_rows": 12,
+  "windows_app_id": "O3.UpgradeReview",
+  "pass": true,
+  "theme_choices": 24
+}

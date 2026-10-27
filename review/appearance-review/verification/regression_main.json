@@ -1,0 +1,157 @@
+{
+  "platform": "windows",
+  "build_root": "C:\\Users\\jzech\\OneDrive\\Documents\\O3\\implementation\\github-publish",
+  "checks": [
+    {
+      "name": "Default useful Mail journey without customization",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Unanswered mail has visible results",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "All mail accessible independently",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Keyboard arrows keep mail list open",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Keyboard Enter opens readable mail",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Back restores mail selection",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "D2 toolbar 1360px at 1.0",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "D2 toolbar 1000px at 1.0",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "D2 toolbar 860px at 1.0",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "D2 toolbar 760px at 1.0",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "D2 toolbar 1360px at 1.25",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "D2 toolbar 1000px at 1.25",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "D2 toolbar 860px at 1.25",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "D2 toolbar 760px at 1.25",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "D2 toolbar 1360px at 1.5",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "D2 toolbar 1000px at 1.5",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "D2 toolbar 860px at 1.5",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "D2 toolbar 760px at 1.5",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Project links retained information",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "D3 wide enlarged-text activation is visible",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "D6 long title has visible full-title action",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "D1 source notice survives unrelated reads",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "D1 save notice survives unrelated reads",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "D1 clearing save state preserves source error",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Person default available",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Document default available",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Event default available",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "LineOfEffort default available",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Integrated knowledge audit succeeded",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Read-only source bytes preserved",
+      "pass": true,
+      "details": null
+    }
+  ],
+  "scope": "Synthetic application verification, not native launcher or managed runtime qualification."
+}
