@@ -1,0 +1,14 @@
+__pycache__/
+.venv/
+.env
+.env.*
+*.log
+*.pyc
+AI_RUNTIME/wheels/
+AI_RUNTIME/licenses/
+AI_RUNTIME/pure_python_deps.zip
+verification/runs/
+review-workspace/
+dist/
+test-artifacts/
+O3/test-artifacts/
