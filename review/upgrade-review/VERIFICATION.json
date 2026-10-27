@@ -1,0 +1,708 @@
+{
+  "build": "3.0.0-alpha3.upgrade1-dev",
+  "client_date": "2026-10-27",
+  "status": "APPLICATION_REVIEW_READY_EXTERNAL_PACKAGING_PENDING",
+  "native_main_checks": [
+    {
+      "name": "Default useful Mail journey without customization",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Unanswered mail has visible results",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "All mail accessible independently",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Keyboard arrows keep mail list open",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Keyboard Enter opens readable mail",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Back restores mail selection",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "D2 toolbar 1360px at 1.0",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "D2 toolbar 1000px at 1.0",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "D2 toolbar 860px at 1.0",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "D2 toolbar 760px at 1.0",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "D2 toolbar 1360px at 1.25",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "D2 toolbar 1000px at 1.25",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "D2 toolbar 860px at 1.25",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "D2 toolbar 760px at 1.25",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "D2 toolbar 1360px at 1.5",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "D2 toolbar 1000px at 1.5",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "D2 toolbar 860px at 1.5",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "D2 toolbar 760px at 1.5",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Project links retained information",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "D3 wide enlarged-text activation is visible",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "D6 long title has visible full-title action",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "D1 source notice survives unrelated reads",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "D1 save notice survives unrelated reads",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "D1 clearing save state preserves source error",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Person default available",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Document default available",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Event default available",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "LineOfEffort default available",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Integrated knowledge audit succeeded",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Read-only source bytes preserved",
+      "pass": true,
+      "details": null
+    }
+  ],
+  "native_edge_checks": [
+    {
+      "name": "True fresh workspace opens without project reconciliation",
+      "pass": true,
+      "details": {
+        "project_reconciliation": null,
+        "error": null
+      }
+    },
+    {
+      "name": "D5 source setup action visible and keyboard reachable at compact 150%",
+      "pass": true,
+      "details": {
+        "button": [
+          18,
+          147,
+          244,
+          52
+        ],
+        "visible_rect": [
+          0,
+          0,
+          244,
+          52
+        ]
+      }
+    },
+    {
+      "name": "D6 keyboard opens complete selectable title",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "D6 full-title reader has accessible name",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Connections focal visible at compact 150%",
+      "pass": true,
+      "details": {
+        "focal": [
+          33,
+          90,
+          333,
+          123
+        ],
+        "viewport": [
+          0,
+          0,
+          810,
+          346
+        ]
+      }
+    },
+    {
+      "name": "Connections first neighbor visible at compact 150%",
+      "pass": true,
+      "details": {
+        "first": [
+          444,
+          90,
+          333,
+          96
+        ],
+        "viewport": [
+          0,
+          0,
+          810,
+          346
+        ]
+      }
+    },
+    {
+      "name": "Connections no horizontal panning required",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Connections cards and edges have accessible names",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Settings 150% controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Settings 150% interactive controls have accessible names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Settings 150% button labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Settings 150% wrapped descriptions fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Mail Personalize 150% controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Mail Personalize 150% interactive controls have accessible names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Mail Personalize 150% button labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Mail Personalize 150% wrapped descriptions fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Saved-view editor 150% controls do not overlap",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Saved-view editor 150% interactive controls have accessible names",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Saved-view editor 150% button labels fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "Saved-view editor 150% wrapped descriptions fit",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "D7 all long month dates measured and fully allocated",
+      "pass": true,
+      "details": [
+        {
+          "month": "January",
+          "width": 280,
+          "measured": 209,
+          "allocated": 211,
+          "reflow": true,
+          "available": 254,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "January",
+          "width": 420,
+          "measured": 209,
+          "allocated": 211,
+          "reflow": true,
+          "available": 394,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "January",
+          "width": 760,
+          "measured": 209,
+          "allocated": 211,
+          "reflow": false,
+          "available": 734,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "February",
+          "width": 280,
+          "measured": 220,
+          "allocated": 222,
+          "reflow": true,
+          "available": 254,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "February",
+          "width": 420,
+          "measured": 220,
+          "allocated": 222,
+          "reflow": true,
+          "available": 394,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "February",
+          "width": 760,
+          "measured": 220,
+          "allocated": 222,
+          "reflow": false,
+          "available": 734,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "March",
+          "width": 280,
+          "measured": 198,
+          "allocated": 200,
+          "reflow": true,
+          "available": 254,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "March",
+          "width": 420,
+          "measured": 198,
+          "allocated": 200,
+          "reflow": true,
+          "available": 394,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "March",
+          "width": 760,
+          "measured": 198,
+          "allocated": 200,
+          "reflow": false,
+          "available": 734,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "April",
+          "width": 280,
+          "measured": 184,
+          "allocated": 186,
+          "reflow": true,
+          "available": 254,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "April",
+          "width": 420,
+          "measured": 184,
+          "allocated": 186,
+          "reflow": true,
+          "available": 394,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "April",
+          "width": 760,
+          "measured": 184,
+          "allocated": 186,
+          "reflow": false,
+          "available": 734,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "May",
+          "width": 280,
+          "measured": 180,
+          "allocated": 182,
+          "reflow": true,
+          "available": 254,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "May",
+          "width": 420,
+          "measured": 180,
+          "allocated": 182,
+          "reflow": true,
+          "available": 394,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "May",
+          "width": 760,
+          "measured": 180,
+          "allocated": 182,
+          "reflow": false,
+          "available": 734,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "June",
+          "width": 280,
+          "measured": 183,
+          "allocated": 185,
+          "reflow": true,
+          "available": 254,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "June",
+          "width": 420,
+          "measured": 183,
+          "allocated": 185,
+          "reflow": true,
+          "available": 394,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "June",
+          "width": 760,
+          "measured": 183,
+          "allocated": 185,
+          "reflow": false,
+          "available": 734,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "July",
+          "width": 280,
+          "measured": 176,
+          "allocated": 178,
+          "reflow": true,
+          "available": 254,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "July",
+          "width": 420,
+          "measured": 176,
+          "allocated": 178,
+          "reflow": true,
+          "available": 394,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "July",
+          "width": 760,
+          "measured": 176,
+          "allocated": 178,
+          "reflow": false,
+          "available": 734,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "August",
+          "width": 280,
+          "measured": 205,
+          "allocated": 207,
+          "reflow": true,
+          "available": 254,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "August",
+          "width": 420,
+          "measured": 205,
+          "allocated": 207,
+          "reflow": true,
+          "available": 394,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "August",
+          "width": 760,
+          "measured": 205,
+          "allocated": 207,
+          "reflow": false,
+          "available": 734,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "September",
+          "width": 280,
+          "measured": 239,
+          "allocated": 241,
+          "reflow": true,
+          "available": 254,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "September",
+          "width": 420,
+          "measured": 239,
+          "allocated": 241,
+          "reflow": true,
+          "available": 394,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "September",
+          "width": 760,
+          "measured": 239,
+          "allocated": 241,
+          "reflow": false,
+          "available": 734,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "October",
+          "width": 280,
+          "measured": 215,
+          "allocated": 217,
+          "reflow": true,
+          "available": 254,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "October",
+          "width": 420,
+          "measured": 215,
+          "allocated": 217,
+          "reflow": true,
+          "available": 394,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "October",
+          "width": 760,
+          "measured": 215,
+          "allocated": 217,
+          "reflow": false,
+          "available": 734,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "November",
+          "width": 280,
+          "measured": 236,
+          "allocated": 238,
+          "reflow": true,
+          "available": 254,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "November",
+          "width": 420,
+          "measured": 236,
+          "allocated": 238,
+          "reflow": true,
+          "available": 394,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "November",
+          "width": 760,
+          "measured": 236,
+          "allocated": 238,
+          "reflow": false,
+          "available": 734,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "December",
+          "width": 280,
+          "measured": 233,
+          "allocated": 235,
+          "reflow": true,
+          "available": 254,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "December",
+          "width": 420,
+          "measured": 233,
+          "allocated": 235,
+          "reflow": true,
+          "available": 394,
+          "lines": 1,
+          "pass": true
+        },
+        {
+          "month": "December",
+          "width": 760,
+          "measured": 233,
+          "allocated": 235,
+          "reflow": false,
+          "available": 734,
+          "lines": 1,
+          "pass": true
+        }
+      ]
+    }
+  ],
+  "combined_application_suite": {
+    "passed": 67,
+    "failed": 0,
+    "seconds": 40.52,
+    "note": "Combined run before the final additional Settings width regression; that regression also passed in the customization suite."
+  },
+  "component_suites": {
+    "backend": 37,
+    "mail_integration": 5,
+    "customization": 17,
+    "integrity": 9,
+    "visual": 7
+  },
+  "original_candidate6_manifest": "PASS (independent integrity suite)",
+  "archive": {
+    "path": "O3_Alpha_3_Upgrade_Review_1.zip",
+    "sha256": "9414e47245fc7da59c4b2d349b44d02a96bc8eeabb0281ed777bbf2d20c0388e",
+    "verified_files": 78
+  },
+  "scope": "Synthetic native Windows/Qt application; preserved source bytes, schema/catalog, locking/revisions and existing workspace compatibility. UIA/keyboard smoke and measured contrast/layout; not full assistive-technology or production-data qualification.",
+  "pending": [
+    "Authoritative native launcher source to integrate executable resources and startup splash",
+    "Actual approved runtime/runner package and managed/packaged startup qualification",
+    "Supported source exports are required; no live mailbox connection or arbitrary-format importer added"
+  ],
+  "packaged_smoke": "PASS: unpacked manifest verified; native review loaded 12 unanswered conversations with synthetic data.",
+  "publication_checkout": {
+    "application_tests": {
+      "passed": 68,
+      "failed": 0,
+      "seconds": 36.739
+    },
+    "visual_tests": {
+      "passed": 7,
+      "failed": 0,
+      "seconds": 3.482
+    },
+    "payload_hashes_verified": 78,
+    "existing_github_review_bundle": "unchanged",
+    "native_checks": "The same application bytes as the recorded 51 passing native checks; native checks were not rerun for publication."
+  }
+}

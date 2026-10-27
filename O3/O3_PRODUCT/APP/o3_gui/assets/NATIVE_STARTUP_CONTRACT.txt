@@ -1,0 +1,40 @@
+O3 identity and native startup integration
+
+Editable masters: o3-mark.svg, o3-mark-small.svg (16–32 px optical variant),
+o3-wordmark.svg, o3-wordmark-light.svg, and o3-startup-design.svg.
+Derived PNG sizes: 16, 20, 24, 32, 40, 48, 64, 96, 128 and 256 px.
+o3.ico contains each size as a 32-bit PNG-compressed Windows icon frame.
+Rebuild with build_brand_assets.py in the implementation root.
+
+The application may use presentation.application_icon() for its window icon.
+That does not modify Windows executable resources, Explorer icons, or startup.
+
+O3.exe remains the sole splash and launch-failure diagnostic owner, as required
+by O3_BOOTSTRAP/bootstrap.py. The authoritative native launcher build source
+and target verification are unavailable. Its resource integration and startup
+behavior therefore remain pending, separately from the missing AI runner.
+Do not patch the existing executable, bypass it, or add a competing Qt splash.
+
+When the supported launcher source/build is supplied:
+1. Embed o3.ico as the application resource with the existing resource identity.
+2. Use the startup reference composition and editable mark at device scale.
+   Text must be live accessible native text; do not use the screenshot as UI.
+   Respect OS text scaling and contrast settings. Provide Night background
+   #18212d with text #edf2f9/#b0bed0 when the saved appearance is available.
+3. The status line must describe actual stages only: Opening O3; Checking your
+   workspace; Ready. Use indeterminate progress until measurable work exists;
+   use real completed/total work only when known. Never animate a fake percent
+   or impose a minimum dwell. The decorative background is static.
+4. Hide once the actual application window is ready. One owner, one splash.
+   Respect reduced motion by removing any optional progress animation while
+   retaining a status label. Avoid flashes between splash and main window.
+5. Replace progress with a human failure message and meaningful recovery:
+   Retry where safe, Open diagnostics, and Close. Keep technical details in
+   expandable/copyable diagnostics, preserve failure evidence, and never
+   report readiness after failure. Keep the controls keyboard accessible.
+6. Qualify a rebuilt native executable separately at Windows 100/125/150/200%
+   display scale, text scaling, cold/warm start, missing input/runtime,
+   unavailable workspace, interrupted initialization, and multi-monitor DPI.
+
+The SVG/PNG startup composition is a design reference only. It is not a second
+launcher, a runtime, a successful startup test, or proof of native integration.

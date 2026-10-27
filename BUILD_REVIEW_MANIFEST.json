@@ -1,0 +1,400 @@
+{
+  "build": "3.0.0-alpha3.upgrade1-dev",
+  "baseline": "3.0.0-alpha3.candidate6",
+  "baseline_source": "026a43087fdbe63c835a94bfb40efb5d867c962f",
+  "created_at_utc": "2026-10-27T04:55:49.660087+00:00",
+  "scope": "Application development review. Native launcher and approved runtime/runner qualification pending.",
+  "files": [
+    {
+      "path": "AI_RUNTIME/seed.py",
+      "sha256": "1e86d2f4e811cf99ed46e2dd5bf2ab9c51bd4691924a79494025d1a031eea474",
+      "bytes": 6033
+    },
+    {
+      "path": "AI_RUNTIME/synthetic_examples.json",
+      "sha256": "2ff969819cbc991a66941b83790bb34e07ad8e4cd9bd2a74297eac1ee2297932",
+      "bytes": 43276
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_core/__init__.py",
+      "sha256": "215ccde13585c0fbdd80e5f12cb16bc3233ae32269f7db945fbae3e4fe3dbe14",
+      "bytes": 77
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_core/__main__.py",
+      "sha256": "fe11056b5043b318c596f707e89d396d73fc1d2eb8bb57ba6a70babed821a6c3",
+      "bytes": 48
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_core/engine.py",
+      "sha256": "975f2deac56f56bc2ea4129543ee1a3b4803cd43db74fc9b2fae3ea2fdde475e",
+      "bytes": 42853
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_core/ontology.py",
+      "sha256": "68e86fb857e5711c1a878dfda4ed0b302660973dc09ca63f2dac544fee5ebbb3",
+      "bytes": 15074
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_core/registry.py",
+      "sha256": "2b15a31dc57367dbe82627c46337cb3e2be2e1e8edf0b5eee76b3638acd2344f",
+      "bytes": 857
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_core/rules/__init__.py",
+      "sha256": "6b612dc8b31e24466a36eee71f201d2def468ef8a5d9c9f4f77e5efc29f67c50",
+      "bytes": 88
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_core/rules/document.py",
+      "sha256": "c0fd31e7e7762b3576df0d6ec3c4a41c43a743f759be8a15f5dd9e0707cb15a4",
+      "bytes": 21335
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_core/rules/email.py",
+      "sha256": "22b230c8e7b2773c70045b0bcfe64144d7c8186df7a5ed3fa9d99f5d9ac4b86d",
+      "bytes": 16744
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_core/rules/event.py",
+      "sha256": "78c0f3778e4d608f1ba8ddc61d5e7d6c2272b4ae6dbf4c296c16787e1565f2d7",
+      "bytes": 23420
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_core/rules/loe.py",
+      "sha256": "c918184cf18d470362f5a62ca8da26b971a709ff854a63a37ac77bfba528db92",
+      "bytes": 11437
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_core/rules/organization.py",
+      "sha256": "3d8918e0b5cd1bfb87af9f9d60e2f1ce2755b4610fa518617d9cdc2e3040c421",
+      "bytes": 8079
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_core/rules/person.py",
+      "sha256": "550d3771408146cacfab4de1207e6586cd08a3ff45ebb2d42e80118bf649b6fc",
+      "bytes": 12212
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_core/store.py",
+      "sha256": "15f23c61c6082bbf9e9cd14550f2f63db1ee991873b504fd1d7bf03a02cdb9ab",
+      "bytes": 32271
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/__init__.py",
+      "sha256": "0f99d82c66a55f65e8d649b22a4ce29aadd3c5484136452386380ea3ff359705",
+      "bytes": 105
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/__main__.py",
+      "sha256": "7a3932a39e648eb685a9f46e671c09a8ffba55109795f9b4594fcda819068b44",
+      "bytes": 1700
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/app.py",
+      "sha256": "faf68f751a9bed146809df58ef53cc403394ae6d113b86b3343486137b325715",
+      "bytes": 89897
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/assets/check-dark.svg",
+      "sha256": "4c66714034bfde4f82290cca38ed139c2e3c59d37179112bcb0d10cbea160e61",
+      "bytes": 194
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/assets/check-light.svg",
+      "sha256": "7a1f92f0ef1e1e65fb2f4b27282099aec147a53f218f94c420ca8f37e0a0bd43",
+      "bytes": 194
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/assets/chevron-dark.svg",
+      "sha256": "d1c387799210019d8475306136431ed3bc8bf31ecfefc5a0dd8d3508dcc45ef9",
+      "bytes": 186
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/assets/chevron-light.svg",
+      "sha256": "01f4e56ac47632166f87b77733fc428592dbc30e22ad8274d1f5c00eccaa4be8",
+      "bytes": 186
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/assets/NATIVE_STARTUP_CONTRACT.txt",
+      "sha256": "b2034d58dc6ade365655ab54336ba762471cc04fd076b2fa0c2d7884d80fd705",
+      "bytes": 2595
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/assets/o3-128.png",
+      "sha256": "123bd110b478b576cec6fa4c786f73e7d88b8e2edb6ced0eff8235bbf407d3c7",
+      "bytes": 7435
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/assets/o3-16.png",
+      "sha256": "baffd1d64f71c8f4388648d33db745dae218a57555374e681dd372dd77e7c5ef",
+      "bytes": 588
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/assets/o3-20.png",
+      "sha256": "b8bb796f69dd55614c24019106e4abd885ed2a8bde91aa3f09fc5066da869010",
+      "bytes": 767
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/assets/o3-24.png",
+      "sha256": "ea2804cdf229cbe321ff1047e3534dacc0382a5f71e924db9ba57c486996462e",
+      "bytes": 926
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/assets/o3-256.png",
+      "sha256": "3670c1a35469e5261dda49a1e905530241f158e5a4397c7191622c4ddd7d48f2",
+      "bytes": 16847
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/assets/o3-32.png",
+      "sha256": "fe8e29b2e2723b7f96ff56119bf915bd2f250b4883992eaa995a1d14dad67e40",
+      "bytes": 1290
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/assets/o3-40.png",
+      "sha256": "6d22aba3d5a730212c9dd941dfec8e09a96fcff1ffcb559fe3835ee335bc9edd",
+      "bytes": 2195
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/assets/o3-48.png",
+      "sha256": "0e03c0671b58c2a6bf428a1d74815a47069f2e03fbec9d71e93fd509aa61bee0",
+      "bytes": 2639
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/assets/o3-64.png",
+      "sha256": "5b184a71404c87e74bd9947c24a7e15e0f31945073d740d4082280b410135afc",
+      "bytes": 3316
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/assets/o3-96.png",
+      "sha256": "a4e33666d4084521983f29b3966032e9b678574ee3d444ddd6d65cb359bffe14",
+      "bytes": 5563
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/assets/o3-mark-small.svg",
+      "sha256": "5ed867706cd344fd455b820417aed3fb318216adee2f645e6d6b6324441c2b19",
+      "bytes": 403
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/assets/o3-mark.svg",
+      "sha256": "506e22c47e2973f120546b4fec10837bdf584a6009196b14960227e7664b8037",
+      "bytes": 705
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/assets/o3-startup-design.png",
+      "sha256": "00566cd7404e7d44741109a3989eb40bbb53680cbe8ef6ba0a7a06b8385998c0",
+      "bytes": 56026
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/assets/o3-startup-design.svg",
+      "sha256": "f28618e505d192aa437a686b15c9dd711a085897739960746728cc0710e8fcda",
+      "bytes": 1549
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/assets/o3-wordmark-light.svg",
+      "sha256": "17d9b114cbedb4e24f7639b217058ef3dfbca92758d9664616d8aa502e7232f7",
+      "bytes": 483
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/assets/o3-wordmark.svg",
+      "sha256": "f4dc6be0e12973d9655c3d20b8654198298eabbf94b5b6947ea02b9d8c6f71b9",
+      "bytes": 483
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/assets/o3.ico",
+      "sha256": "7c086b98d5738400ccad7fc6b027f12140c2520ab605611d9b990291fc53f708",
+      "bytes": 41732
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/builder_support.py",
+      "sha256": "206ec9e739dd70e58eab43595f3a6e3cee89d823fc6a78f3303119ea7cbb6b86",
+      "bytes": 6241
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/display_preferences.py",
+      "sha256": "694006511b0c67c6ed50bc5172483a7ca7d3b71986fcb391d552c6b068f35fce",
+      "bytes": 17528
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/human_customization.py",
+      "sha256": "b8df242f7fab64a2e0262aa4cf338477912aab05b2b3cd5985174e8a2a39aec5",
+      "bytes": 22115
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/investigation.py",
+      "sha256": "926aaeed851c756082a6cd1be431af8b72dfafa1536c9cebc658ad173472e850",
+      "bytes": 9314
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/km_client.py",
+      "sha256": "0f5f297adfb63f385082ef2179fc331d85e747e5506ecd4ce92fc622c322c3d8",
+      "bytes": 4856
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/km_session.py",
+      "sha256": "31e40b9e27df27da06d908fa2066a2a366e62a3a5e8f5b59eb198a8c79cb6848",
+      "bytes": 28354
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/knowledge_views.py",
+      "sha256": "6fd43d72e7f15aa8d2b85a307593a286421e061533395a64e54a2c14319a3f9e",
+      "bytes": 8246
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/logic.py",
+      "sha256": "0715015775601b3a2dcce778f57bf0b73f03f2969112bfc53b664cc93f1aa9eb",
+      "bytes": 13203
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/mail_workspace.py",
+      "sha256": "0f74a501be30f7320384df4d102bdbc49fedb2cede6a7442920648ca337a6186",
+      "bytes": 25260
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/navigation.py",
+      "sha256": "23f2d39c66af43da29a70a0da33632c78dfde98d4bc6bfb20c6d2affc7eed55a",
+      "bytes": 9057
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/panels.py",
+      "sha256": "21a220d0a726e71a840b4f25a5f30498ced32834cc7d249bc76b635c580216ad",
+      "bytes": 20193
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/presentation.py",
+      "sha256": "8b00299cbdffd4d308c7c7cfe74ceaf42f20a290a2aaf7614753020f7313603c",
+      "bytes": 9292
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/record_actions.py",
+      "sha256": "ed5d7aecb13c959db346feb08aa0bdabdf9bf8565559f822cc0c9f00ec870f80",
+      "bytes": 17311
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/record_content.py",
+      "sha256": "c53e43a102dda5746547b4adc3f7b5d666c505f10ac24d0ecf3d6e644be00f32",
+      "bytes": 20264
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/relationship_evidence.py",
+      "sha256": "2fed70a93e6ab197b286b50e944ecd1c218da8696ea21bb5ed89e72c3b557abb",
+      "bytes": 5103
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/review_setup.py",
+      "sha256": "d0a9d17143705c09b1c2ce5b68cc2c9ea47d7a39beff5df87d788918d5d77d6f",
+      "bytes": 315
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/source_status.py",
+      "sha256": "80161e90a4f9328a2dbfd5ce38872e17aaa3605c9f050081c8dee5759fe0e507",
+      "bytes": 1780
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/spatial.py",
+      "sha256": "dfcccc91f8e8fd19002f79a27d05bb25e5bcce8c44a3f3610b80aca95788eedc",
+      "bytes": 19965
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/ui.py",
+      "sha256": "47ec42491c7eb7be5b963cf7e824a4349f0e9db6f1ea3db8801e859cc6af0207",
+      "bytes": 16993
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/workbench_tools.py",
+      "sha256": "b67095a4f8de1d5d545be9c11370682218cf8f5bece8355080dd79519768ac5b",
+      "bytes": 31550
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/worker.py",
+      "sha256": "612d6cac56d370a2fd741d64866644fe381671ec0a716b1f24396e57df04fae9",
+      "bytes": 4582
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/workspace_editor.py",
+      "sha256": "b308bcebeb04350859330fc51b7ddf82658775a043c29359a3e661cd8b5df521",
+      "bytes": 134270
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_gui/workspace_type_editor.py",
+      "sha256": "906398a754cac96b216c579023678c90b204de3fe401aa20f371302e1d53be13",
+      "bytes": 14291
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_km/__init__.py",
+      "sha256": "435c5e0f557125c2d49252e40d3fa2d2aa2c74de02d476a0dfecdaafb5e421b3",
+      "bytes": 493
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_km/authoring.py",
+      "sha256": "d046d275f7b4061927e075967d2d177a30631388b3cf6272abd8b30347e69404",
+      "bytes": 19634
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_km/catalog.py",
+      "sha256": "1a3012e1f1996522429388eeeee3528edc5db37da1ee92f69947aedcdb6e6882",
+      "bytes": 12267
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_km/core_bridge.py",
+      "sha256": "1b6fa9866933d6cadafea61b5a9d9cfc86e70eacb5929817412ac6da3adf4f7d",
+      "bytes": 11020
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_km/evaluation.py",
+      "sha256": "bf93f199d3418ac7ecf7a923740d46e83cc4343772dd544ae8bc65e4d76c2f60",
+      "bytes": 26988
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_km/mail_tasks.py",
+      "sha256": "2a3368026bcabdd2d16151f42733dce2d152e33649e7bc6f01b807b31c756529",
+      "bytes": 20968
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_km/migration.py",
+      "sha256": "8b69677ecf9cfe6c7300515ff685b75e432af5b0db1e45f7f12a7da6c0877589",
+      "bytes": 42796
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_km/queries.py",
+      "sha256": "40f91c8a6185ac2f4fc41c6daab85d23fcf8dd5ba853068267731e33c93be078",
+      "bytes": 66766
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_km/service.py",
+      "sha256": "8dd50291e95938b99a1d08d38d1e65a57a93bdc8b00f057f652e4d4191ea94e3",
+      "bytes": 116901
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/o3_km/workspace_types.py",
+      "sha256": "151a7c2dffc1755fb977bb8ba2d97984f8f5957535321a644510b716cbd3cc4b",
+      "bytes": 30770
+    },
+    {
+      "path": "O3/O3_PRODUCT/APP/ontology/o3_core_v0_1.ttl",
+      "sha256": "9ce08e3e3179e16f88d5e17ded9661326f6f49782ad7f37b731ee0c550b84675",
+      "bytes": 18555
+    },
+    {
+      "path": "Open O3 Review.cmd",
+      "sha256": "f112be2a4cd5f48ab1289dfb0958cc5aa122655896105ee677d5b693463d6165",
+      "bytes": 408
+    },
+    {
+      "path": "READ_ME_FIRST.txt",
+      "sha256": "f300c132323222a91372f5884458a031860b4aa5f942977997349297dda6bff1",
+      "bytes": 2414
+    },
+    {
+      "path": "review_app.py",
+      "sha256": "6934ae63ed36e97178ae54ceedcad1789544c0d5cf60cdf3e7d5fad78606b7c3",
+      "bytes": 1862
+    },
+    {
+      "path": "review_examples.py",
+      "sha256": "fe145668fcf8f2ed7eb535aac8d65c15af07d528ded8d25e54602476238b65ec",
+      "bytes": 2242
+    }
+  ],
+  "baseline_zip_sha256": "3f47c9e78577463f83554bc0d4b0141c5800add54db3662cf0b6f0baf40e82c4"
+}

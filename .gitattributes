@@ -1,0 +1,2 @@
+# Preserve reviewed file bytes, including existing line endings, for hash checks.
+* -text
